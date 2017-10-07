@@ -1,0 +1,26 @@
+{
+  "name": "jdi",
+  "version": "1.0.0",
+  "description": "aplicação web",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaoCastroHub/oficina.git"
+  },
+  "author": "joao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaoCastroHub/oficina/issues"
+  },
+  "homepage": "https://github.com/joaoCastroHub/oficina#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "jquery": "^3.2.1",
+    "nodemon": "^1.12.1"
+  }
+}
