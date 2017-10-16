@@ -4,6 +4,10 @@ module.exports = function (app) {
         res.render("login/login");
     });
 
+    app.get("/listagem", function (req, res) {
+        res.render("listagem/listagem");
+    });
+
     app.get("/", function (req, res) {
         res.render("index");
     });
