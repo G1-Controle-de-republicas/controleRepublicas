@@ -5,7 +5,13 @@ var bodyParser = require('body-parser');
 module.exports = function(){
     var app = express();
 
-    consign().include('controllers').into(app);
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+    
+    consign()
+        .include('controllers')
+        .then('services')
+        .into(app);
 
     return app;
 }
