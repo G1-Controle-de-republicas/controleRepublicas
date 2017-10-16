@@ -6,7 +6,7 @@ app.set('views','./app/views');
 
 var path = require('path');
 app.use(express.static(path.join(__dirname, '../node_modules')));
-app.use(express.static(path.join(__dirname, '../app/views')));    
+app.use(express.static(path.join(__dirname, '../app/')));    
 
 
 module.exports = function () {
