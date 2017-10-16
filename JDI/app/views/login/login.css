@@ -1,3 +1,70 @@
-.teste{
-    color:red;
+body{
+    margin: 0px;
+}
+
+.shia{ 
+    position: absolute;
+    height: 290px;
+    top: 50px;
+}
+
+body div.tela{
+    display: flex;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    background-color: #e74c3c;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body div.container{
+    background-color: #cc3e30;
+    opacity: 0.8;
+    width: 230px;
+    height: 230px;
+    border-style: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+body form{
+    max-width: 100%;
+    top: 2px;
+}
+
+body div input.dados{
+    width: 160px;
+    max-width: 100%;
+    margin: 10px;
+    padding: 0 0 10px 0;
+    border-style: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    color: white;
+}
+
+body div form input.conect{
+    display: block;
+    max-width: 100%;
+    width: 160px;
+    height: 35px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: white;
+    border: 0;
+    border-radius: 15px;
+    color: #cc3e30;
+}
+
+body div form input.conect:active{
+    transition: 0.3s;
+    transform: scale(1.2);;
 }
