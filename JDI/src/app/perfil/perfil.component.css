@@ -1,0 +1,32 @@
+.perfil_tela{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    background-color: #4e7ff0;]
+    width: 100vw;
+    height: 100vh;
+}
+
+.perfil_topo{
+    background-repeat: no-repeat;
+    background-color: rgb(38, 38, 158);
+    width: 100vw;
+    height: 10vh;
+    display: inline-block;
+    align-items: center;
+}
+.button_back{
+    border-radius: 50%;
+    align-items: center;
+    color: orange;
+    float: left;
+}
+.backicon{
+    width: 80px;
+    height: 80px;
+}
+.title{
+    float: left;
+    margin-left: 25%;
+    color: white;
+}

@@ -9,12 +9,14 @@ import { HttpModule } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppService } from './app-service.service';
 import { PainelComponent } from './painel/painel.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PainelComponent
+    PainelComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
