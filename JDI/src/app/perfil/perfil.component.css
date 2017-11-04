@@ -60,40 +60,24 @@
 /* media satanicas */
 @media only screen and (max-width: 1440px){
     .title{
-        position: relative;
-        float: left;
         margin-left: 41%; 
-        color: white;
-        font-size: 32px;
     }
 }
 
 @media only screen and (max-width: 1024px){
     .title{
-        position: relative;
-        float: left;
         margin-left: 37%; 
-        color: white;
-        font-size: 32px;
     }
 }
 
 @media only screen and (max-width: 768px){
     .title{
-        position: relative;
-        float: left;
-        margin-left: 33%; 
-        color: white;
-        font-size: 32px;
+        margin-left: 33%;      
     }
 }
 
 @media only screen and (max-width: 425px){
     .title{
-        position: relative;
-        float: left;
-        margin-left: 20%; 
-        color: white;
-        font-size: 32px;
+        margin-left: 20%;   
     }
 }
