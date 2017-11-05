@@ -1,0 +1,83 @@
+.perfil_tela{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    background-color: #3498DB;
+    width: 100vw;
+    height: 100vh;
+}
+
+.perfil_topo{
+    background-repeat: no-repeat;
+    background-color: #34495E;
+    width: 100vw;
+    height: 10vh;
+    display: inline-block;
+    align-items: center;
+}
+.button_back{
+    border-radius: 50%;
+    color: orange;
+    float: left;
+}
+.backicon{
+    width: 80px;
+    height: 80px;
+}
+
+.viewprofile{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    margin-top: 40px;
+}
+.profileimg{
+    background-image: url(http://www.psicologianoesporte.com.br/wp-content/uploads/2016/03/atencao-teste.jpg); /*adicionar algum tipo de função pra pegar do banco*/
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.profileinfo{
+    position: relative;
+    margin-left: 20%;
+    margin-top: 40px;
+}
+.info{
+    color: white;
+    font-size: 20px;
+}
+.title{
+    position: relative;
+    float: left;
+    margin-left: 43%; 
+    color: white;
+    font-size: 32px;
+}
+
+/* media satanicas */
+@media only screen and (max-width: 1440px){
+    .title{
+        margin-left: 41%; 
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .title{
+        margin-left: 37%; 
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .title{
+        margin-left: 33%;      
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .title{
+        margin-left: 20%;   
+    }
+}

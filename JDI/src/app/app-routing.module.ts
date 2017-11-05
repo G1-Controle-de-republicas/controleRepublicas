@@ -5,6 +5,7 @@ import { AppService } from './app-service.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PainelComponent } from './painel/painel.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'painel',
     component: PainelComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
   }
 ];
 
