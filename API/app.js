@@ -1,5 +1,6 @@
 
 var app = require('./config/custom-express')();
+var rotas = require('./routes/app-routing')(app);
 // var db = require('./services/firebaseConnection')();
 
 app.listen(3000, function(){
