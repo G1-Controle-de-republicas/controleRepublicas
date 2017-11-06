@@ -16,11 +16,14 @@ TarefaCtrl.prototype.criarTarefa = function (grupo, tarefa, callback) {
 }
 
 TarefaCtrl.prototype.buscaTarefas = function (grupo, usuario, callback){
-    
+    var lista = [];
     var tasksRef = this.ref.child(grupo + "/users/" + usuario + "/tasks");
 
     tasksRef.on("value", function (snapshot) {
-        callback(snapshot.val());
+        snapshot.forEach(function(snap) {
+            lista.push(snap.val());
+        });
+        callback(lista);
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
         callback(false);

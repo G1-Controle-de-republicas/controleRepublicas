@@ -4,14 +4,25 @@ function UsuarioCrtl(app, db) {
 }
 
 UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
-    var login;
-    var key = usuario.idGrupo;
     var userKey = usuario.key;
-    var usersRef = this.ref.child(key + "/users");
+    var groupRef = this.ref;
+    var ctrl = false;
+    var key;
 
-    usersRef.on("child_added", function (snapshot) {
-        login = snapshot.val();
-        if(login.login == usuario.login && login.senha == usuario.senha) callback(login);
+    groupRef.on("value", function (snapshot) {
+        snapshot.forEach(function (snap) {
+            key = snap.val().id;
+            var usersRef = groupRef.child(key + "/users");
+            usersRef.on("value", function (snapS) {
+                snapS.forEach(function (users) {
+                    var user = users.val();
+                    if (user.login == usuario.login && user.senha == usuario.senha) {
+                        ctrl = user;
+                    }
+                });
+                callback(ctrl);
+            });
+        });
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
         callback(false);
@@ -53,7 +64,7 @@ UsuarioCrtl.prototype.buscaUsuarios = function (grupo, callback) {
 UsuarioCrtl.prototype.deleteUsuarios = function (grupo, user, callback) {
     var usersRef = this.ref.child(grupo + "/users");
     usersRef.child(user).remove(function () {
-        callback(true);r
+        callback(true);
     });
 }
 

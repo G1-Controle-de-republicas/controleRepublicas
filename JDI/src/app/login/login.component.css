@@ -72,3 +72,14 @@ form {
 input::-webkit-input-placeholder { 
     color: #fff;
   }
+
+input:focus {
+    outline: none;
+}
+
+.erro-feedback {
+    position: absolute;
+    align-self: self-start;
+    margin-top: 5px;
+    color: #fff;
+}

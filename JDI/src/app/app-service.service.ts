@@ -53,5 +53,39 @@ export class AppService {
     });
   }
 
+  getLogado() {
+    return this.doRequest('get', 'login').map(res => {
+      this.logado = JSON.parse(res["_body"]);
+      return this.logado;
+    }, err => {
+      console.log('Erro login: ' + err);
+    });
+  }
+
+  doLogin(usuario) {
+    return this.doRequest('post', 'login', usuario, false).map(res =>{
+      this.logado = JSON.parse(res["_body"]);
+      return this.logado;
+    }, err =>{
+      console.log("erro ao logar: " + err);
+    });
+  }
+
+  buscaTarefa(usuario, grupo){
+    return this.doRequest('get', 'tarefa/user/' + usuario + "/" + grupo).map(res =>{
+      return JSON.parse(res["_body"]);
+    }, err =>{
+      console.log("Erro ao buscar tarefas: " + err);
+    });
+  }
+
+  criarTarefa(tarefa){
+    return this.doRequest('post', 'tarefa', tarefa).map(res => {
+      return res["_body"];
+    }, err => {
+      console.log("Erro ao criar tarefa: " + err);
+    });
+  }
+
 
 }

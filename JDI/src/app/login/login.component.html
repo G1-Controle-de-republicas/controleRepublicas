@@ -1,10 +1,11 @@
 <div class="tela">
   <img class="shia" src=" ../../assets/img/shia.png" alt="PNG JustDoIt!">
   <div class="container">
-    <form action="">
-      <input class="dados" placeholder="Login" type="text" name="user" value="">
+    <div class="erro-feedback" *ngIf="erro">Login ou senha incorretos</div>
+    <form  autocomplete="off" accept-charset="UTF-8" (submit)="conectar($event)">
+      <input class="dados" placeholder="Login" type="text" name="user" value="" [(ngModel)]="user.login">
       <br>
-      <input class="dados" placeholder="Senha" type="text" name="password" value="">
+      <input class="dados" placeholder="Senha" type="password" name="password" value="" [(ngModel)]="user.senha">
       <br>
       <input class="conect" type="submit" value="CONECTAR">
     </form>

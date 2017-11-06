@@ -10,7 +10,7 @@ module.exports = function (app) {
     //LOGIN
     app.get('/login', function (req, res) {
         if (req.session.user) {
-            res.send(true);
+            res.send(req.session.user);
         } else {
             res.send(false);
         }
@@ -27,6 +27,7 @@ module.exports = function (app) {
         var usuario = req.body;
         user.doLogin(usuario, function (callback) {
             req.session.user = callback;
+            console.log(callback);
             res.send(callback);
         })
     });
@@ -92,9 +93,9 @@ module.exports = function (app) {
     });
 
     //TAREFAS
-    app.get('/tarefa/user/:id', function (req, res) {
+    app.get('/tarefa/user/:id/:grupo', function (req, res) {
         var usuario = req.params.id;
-        var grupo = req.session.user.idGrupo;
+        var grupo = req.params.grupo;
         task.buscaTarefas(grupo, usuario, function (callback) {
             res.send(callback);
         });

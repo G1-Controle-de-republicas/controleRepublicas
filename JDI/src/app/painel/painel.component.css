@@ -1,0 +1,153 @@
+.painel-pg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #3498DB;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    background-color: #2980B9;
+}
+
+.painel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 65px;
+}
+
+/*PAINEL*/
+
+.imagem {
+    width: 128px;
+    height: 128px;
+}
+
+.imagem-tarefa {
+    width: 128px;
+    height: 128px;
+}
+
+.task-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+
+.glyphicon {
+    top: 7px;
+    left: 9px;
+    font-size: 25px;
+}
+
+.add-task {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 20px;
+    background-color: #f92a2a;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,1);
+}
+
+.block-task {
+    margin-bottom: 10px;
+}
+
+/*HAMBURGUER*/
+
+.hamburguer {
+    position: relative;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 5px;
+    height: 32px;
+    width:25px;
+}
+
+.hamburguer span {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: #faf7f7;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+}
+
+.hamburguer span:nth-child(1) {
+    top: 11px;
+}
+
+.hamburguer span:nth-child(2) {
+    top: 18px;
+}
+
+.hamburguer span:nth-child(3) {
+    top: 25px;
+}
+
+/*POPUP NOVA TAREFA*/
+
+.popUp {
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+    width: 215px;
+    height: 180px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgb(88, 100, 243);
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+}
+
+.input-task {
+    margin-bottom: 10px;
+}
+
+.btn-add-task{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    color: #31334a;
+}
+
+.btn-add-task:focus {
+    outline: none;
+}
+
+.pop-input {
+    width: 100%;
+    border: none;
+    color: #000000;
+}
+
+.pop-input:focus {
+    outline: none;
+}
+
+.fade-task {
+    position: fixed;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+

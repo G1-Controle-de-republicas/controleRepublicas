@@ -1,3 +1,41 @@
-<p>
-  painel works!
-</p>
+<div class="painel-pg">
+  <div class="header">
+    <div class="hamburguer pointer" (click)="teste()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="painel">
+    <div class="block-task" *ngFor="let t of tarefaLst">
+      <div class="imagem">
+        <img class="imagem-tarefa" src="../../assets/img/seo.png" alt="imagem-tarefa">
+      </div>
+      <div class="task-info">
+        <div class="task-name">{{t.nome}}</div>
+        <div class="task-time">{{t.duracao}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-task" *ngIf="newTask" (click)="closeAdd()"></div>
+  <div class="popUp" *ngIf="newTask">
+    <div class="input-task">
+      <label for="tarefa">Tarefa: </label>
+      <input class="pop-input" type="text" name="tarefa" [(ngModel)]="tarefa.nome">
+    </div>
+    <div class="input-task">
+      <label for="tempo">Duração: </label>
+      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.duracao">
+    </div>
+    <div>
+      <button class="btn-add-task" (click)="addTask()">Adicionar</button>
+    </div>
+  </div>
+
+  <div class="add-task pointer" (click)="novatarefa()">
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
+
+</div>

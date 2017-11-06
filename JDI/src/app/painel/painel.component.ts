@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Tarefa } from '../definitions/tarefa';
+import { Router } from "@angular/router";
+import { AppService } from "../app-service.service";
 
 @Component({
   selector: 'app-painel',
@@ -6,10 +9,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./painel.component.css']
 })
 export class PainelComponent implements OnInit {
+  newTask: boolean;
+  usuario: any;
 
-  constructor() { }
+  tarefa: Tarefa = new Tarefa();
+  tarefaLst: Array<Tarefa> = new Array<Tarefa>();
+
+  constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
+    this.loadTarefas();
   }
 
+  novatarefa() {
+    this.newTask = true;
+    console.log(this.tarefaLst);
+  }
+
+  closeAdd() {
+    this.resetVar();
+  }
+
+  addTask() {
+    this.tarefa.idUsuario = this.service.logado.id;
+    this.tarefa.isDone = false;
+    console.log(this.tarefa);
+    this.service.criarTarefa(this.tarefa).subscribe(res => {
+      this.loadTarefas();
+      this.resetVar();
+    }, erro => {
+      console.log("erro ao criar tarefa: " + erro);
+    });
+  }
+
+  resetVar() {
+    this.tarefa = new Tarefa();
+    this.newTask = false;
+  }
+
+  loadTarefas() {
+    this.service.getLogado().subscribe(res => {
+      this.usuario = res;
+      this.service.buscaTarefa(this.usuario.id, this.usuario.idGrupo).subscribe(res => {
+        this.tarefaLst = res;
+      }, err => {
+        console.log("Erro ao buscar tarefas: " + err);
+      });
+    });
+  }
 }
