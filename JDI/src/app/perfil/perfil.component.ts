@@ -12,4 +12,9 @@ export class PerfilComponent implements OnInit {
   ngOnInit() {
   }
 
+  returnToPainel(){
+    document.write("<p> TESTA </p>");
+  }
+
 }
+ 

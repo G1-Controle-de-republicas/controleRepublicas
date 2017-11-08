@@ -3,30 +3,37 @@
     background-repeat: no-repeat;
     background-position-x: center; 
     background-color: #3498DB;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 }
 
 .perfil_topo{
     background-repeat: no-repeat;
     background-color: #34495E;
-    width: 100vw;
-    height: 10vh;
-    display: inline-block;
-    align-items: center;
-}
-.button_back{
-    border-radius: 50%;
-    color: orange;
-    float: left;
-}
-.backicon{
-    width: 80px;
+    width: 100%;
     height: 80px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: black 0px 1px 3px;
+}
+
+.backicon{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 5px;
+    top: 13px;
+    border: 1px solid #fff9;
+    border-radius: 30px;
+    box-shadow: #3d3d4e 1px 0px 5px;
+}
+
+.backicon:hover{
+    opacity: 0.85;
 }
 
 .viewprofile{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     align-items: center;
     margin-top: 40px;
@@ -41,43 +48,16 @@
 }
 
 .profileinfo{
-    position: relative;
-    margin-left: 20%;
-    margin-top: 40px;
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 25px;
 }
 .info{
     color: white;
     font-size: 20px;
 }
 .title{
-    position: relative;
-    float: left;
-    margin-left: 43%; 
+    position: relative; 
     color: white;
     font-size: 32px;
-}
-
-/* media satanicas */
-@media only screen and (max-width: 1440px){
-    .title{
-        margin-left: 41%; 
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .title{
-        margin-left: 37%; 
-    }
-}
-
-@media only screen and (max-width: 768px){
-    .title{
-        margin-left: 33%;      
-    }
-}
-
-@media only screen and (max-width: 425px){
-    .title{
-        margin-left: 20%;   
-    }
 }
