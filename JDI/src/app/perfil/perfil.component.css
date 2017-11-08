@@ -11,18 +11,17 @@
     background-repeat: no-repeat;
     background-color: #34495E;
     width: 100vw;
-    height: 10vh;
+    height: 80px;
     display: inline-block;
-    align-items: center;
 }
-.button_back{
-    border-radius: 50%;
-    color: orange;
-    float: left;
-}
+
 .backicon{
+    float: left;
     width: 80px;
     height: 80px;
+}
+.backicon:hover{
+    opacity: 0.85;
 }
 
 .viewprofile{
@@ -41,8 +40,7 @@
 }
 
 .profileinfo{
-    position: relative;
-    margin-left: 20%;
+    text-align: center;
     margin-top: 40px;
 }
 .info{
@@ -52,7 +50,7 @@
 .title{
     position: relative;
     float: left;
-    margin-left: 43%; 
+    margin-left: 44%; 
     color: white;
     font-size: 32px;
 }
