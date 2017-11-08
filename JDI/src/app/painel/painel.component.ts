@@ -11,6 +11,7 @@ import { AppService } from "../app-service.service";
 export class PainelComponent implements OnInit {
   newTask: boolean;
   usuario: any;
+  teste;  
 
   tarefa: Tarefa = new Tarefa();
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();

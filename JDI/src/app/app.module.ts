@@ -10,13 +10,15 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppService } from './app-service.service';
 import { PainelComponent } from './painel/painel.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PainelComponent,
-    PerfilComponent
+    PerfilComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,

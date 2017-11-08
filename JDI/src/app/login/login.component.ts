@@ -9,7 +9,6 @@ import { AppService } from "../app-service.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   user: Usuario = new Usuario();
   erro: boolean = false;
 

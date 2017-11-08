@@ -6,11 +6,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PainelComponent } from './painel/painel.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { RankingComponent } from "./ranking/ranking.component";
 
 const routes: Routes = [
   {
     path: '',
     component: AppComponent
+  },
+  {
+    path: 'ranking',
+    component: RankingComponent
   },
   {
     path: 'login',
