@@ -15,11 +15,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.service.getLogado().subscribe(res => {
-      if (res) {
-        this.router.navigate(['/painel']);
-      } else {
-        this.router.navigate(['/login']);
-      }
+      if (!res) this.router.navigate(['/login']);
     });
   }
 

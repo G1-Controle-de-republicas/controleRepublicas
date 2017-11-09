@@ -13,7 +13,7 @@ export class PerfilComponent implements OnInit {
   }
 
   returnToPainel(){
-    document.write("<p> TESTA </p>");
+    console.log("funciona!");
   }
 
 }

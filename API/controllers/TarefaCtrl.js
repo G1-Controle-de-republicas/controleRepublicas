@@ -1,3 +1,5 @@
+async = require('async');
+
 function TarefaCtrl(app, db) {
     this.app = app;
     this.ref = db.ref("restricted_access/secret_document/groups");
@@ -15,19 +17,20 @@ TarefaCtrl.prototype.criarTarefa = function (grupo, tarefa, callback) {
     });
 }
 
-TarefaCtrl.prototype.buscaTarefas = function (grupo, usuario, callback){
+TarefaCtrl.prototype.buscaTarefas = function (grupo, usuario, callback) {
     var lista = [];
     var tasksRef = this.ref.child(grupo + "/users/" + usuario + "/tasks");
 
     tasksRef.on("value", function (snapshot) {
-        snapshot.forEach(function(snap) {
+        snapshot.forEach(function (snap) {
             lista.push(snap.val());
-        });
+        })
         callback(lista);
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
         callback(false);
     });
+
 }
 
 TarefaCtrl.prototype.editarTarefa = function (grupo, tarefa, callback) {
@@ -35,7 +38,7 @@ TarefaCtrl.prototype.editarTarefa = function (grupo, tarefa, callback) {
     var key = tarefa.id;
     var tasksRef = this.ref.child(grupo + "/users/" + userKey + "/tasks/" + key);
 
-    tasksRef.update(tarefa, function (){
+    tasksRef.update(tarefa, function () {
         callback(true);
     });
 }
