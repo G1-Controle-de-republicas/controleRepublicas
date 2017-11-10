@@ -9,6 +9,7 @@ import { AppService } from "../app-service.service";
   styleUrls: ['./painel.component.css']
 })
 export class PainelComponent implements OnInit {
+  sidebarOpen: boolean = false;
   newTask: boolean;
   usuario: any;
   teste;  
@@ -17,6 +18,10 @@ export class PainelComponent implements OnInit {
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();
 
   constructor(public service: AppService, public router: Router) { }
+
+  sidebar(){
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 
   ngOnInit() {
     this.loadTarefas();

@@ -51,7 +51,7 @@
 .add-task {
     width: 40px;
     height: 40px;
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     border-radius: 20px;
@@ -99,15 +99,25 @@
 }
 
 /*SIDEBAR*/
-
+.open {
+    left: 0 !important;
+    -webkit-transition: 0.7s ease-out;
+    -moz-transition: 0.7s ease-out;
+    -o-transition: 0.7s ease-out;
+    transition: 0.7s ease-out;
+}
 .sidebar{
     position: fixed;
     background-color: rgb(53, 81, 109);
     border: 2px solid rgb(42, 62, 83);
     top: 50px;
-    left: 0;
+    left: -230px;
     height: 100%;
     width: 75%;
+    -webkit-transition: 0.7s ease-out;
+    -moz-transition: 0.7s ease-out;
+    -o-transition: 0.7s ease-out;
+    transition: 0.7s ease-out;
 }
 
 div.sidebar ul{
@@ -134,8 +144,8 @@ div.sidebar ul li{
     z-index: 9;
     width: 215px;
     height: 180px;
-    position: absolute;
-    top: 40%;
+    position: fixed;
+    top: 30%;
     left: 50%;
     transform: translate(-50%);
     background: rgb(88, 100, 243);

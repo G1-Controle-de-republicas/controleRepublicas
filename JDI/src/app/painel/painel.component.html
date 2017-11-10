@@ -1,6 +1,6 @@
 <div class="painel-pg">
   <div class="header">
-    <div class="hamburguer pointer" (click)="teste()">
+    <div class="hamburguer pointer" (click)="sidebar()">
       <span></span>
       <span></span>
       <span></span>
@@ -38,13 +38,13 @@
     <span class="glyphicon glyphicon-plus"></span>
   </div>
 
-  <div class="sidebar">
+  <div class="sidebar" [ngClass]="{'open': sidebarOpen}">
     <ul>
       <li style="background-color: rgb(42, 62, 83); height: 100px;">TESTãO</li>
-      <li>Contas</li>
-      <li>Lista de compras</li>
-      <li>Ranking</li>
-      <li style="border-bottom: 2px solid rgb(42, 62, 83);">Republica</li>
+      <li class="pointer">Contas</li>
+      <li class="pointer">Lista de compras</li>
+      <li class="pointer">Ranking</li>
+      <li class="pointer" style="border-bottom: 2px solid rgb(42, 62, 83);">Republica</li>
     </ul>
   </div>
 </div>
