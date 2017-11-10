@@ -9,7 +9,7 @@ UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
     var ctrl = false;
     var key;
 
-    groupRef.on("value", function (snapshot) {
+    return groupRef.once("value").then(snapshot => {
         snapshot.forEach(function (snap) {
             key = snap.val().id;
             var usersRef = groupRef.child(key + "/users");
@@ -20,13 +20,10 @@ UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
                         ctrl = user;
                     }
                 });
-                callback(ctrl);
             });
         });
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-        callback(false);
-    });
+        callback(ctrl);        
+    })
 
 }
 
