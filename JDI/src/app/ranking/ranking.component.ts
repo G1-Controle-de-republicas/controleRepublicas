@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { AppService } from "../app-service.service";
+import { Usuario } from '../definitions/usuario';
 
 @Component({
   selector: 'app-ranking',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
+  
+  user: Usuario = new Usuario();
+  userLst: Array<Usuario> = new Array<Usuario>();
 
-  constructor() { }
+  constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
+  }
+
+  returnToPainel(){
+    this.router.navigate(['/painel']);
   }
 
 }

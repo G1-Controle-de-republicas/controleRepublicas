@@ -40,11 +40,15 @@
 
   <div class="sidebar" [ngClass]="{'open': sidebarOpen}">
     <ul>
-      <li style="background-color: rgb(42, 62, 83); height: 100px;">TESTãO</li>
-      <li class="pointer">Contas</li>
-      <li class="pointer">Lista de compras</li>
-      <li class="pointer">Ranking</li>
-      <li class="pointer" style="border-bottom: 2px solid rgb(42, 62, 83);">Republica</li>
+      <li class="pointer" style="background-color: rgb(42, 62, 83); height: 100px;" (click)="goToPerfil()">
+        
+        <span>{{usuario.nome}}</span>
+      
+      </li>
+      <li class="pointer" (click)="goToContas()">Contas</li>
+      <li class="pointer" (click)="goToListacompras()">Lista de compras</li>
+      <li class="pointer" (click)="goToRanking()">Ranking</li>
+      <li class="pointer" style="border-bottom: 2px solid rgb(42, 62, 83);" (click)="goToRep()">Republica</li>
     </ul>
   </div>
 </div>
