@@ -11,6 +11,7 @@ import { AppService } from './app-service.service';
 import { PainelComponent } from './painel/painel.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RankingComponent } from './ranking/ranking.component';
+import { ListaComprasComponent } from './listacompras/listacompras.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RankingComponent } from './ranking/ranking.component';
     LoginComponent,
     PainelComponent,
     PerfilComponent,
-    RankingComponent
+    RankingComponent,
+    ListaComprasComponent
   ],
   imports: [
     BrowserModule,
