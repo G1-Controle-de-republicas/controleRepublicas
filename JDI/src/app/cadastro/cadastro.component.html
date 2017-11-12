@@ -1,0 +1,13 @@
+<div class="top">
+  <div class="just">JUST DO IT!</div>
+</div>
+
+<div class="cadastro">
+  <form autocomplete="off" accept-charset="UTF-8" (submit)="cadastrar($event)">
+    <input class="dados" placeholder="Login" type="text" name="user" value="" [(ngModel)]="user.login">
+    <br>
+    <input class="dados" placeholder="Senha" type="password" name="password" value="" [(ngModel)]="user.senha">
+    <br>
+    <input class="submit" type="submit" value="Cadastrar">
+  </form>
+</div>

@@ -12,6 +12,7 @@ import { PainelComponent } from './painel/painel.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { ListaComprasComponent } from './listacompras/listacompras.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ListaComprasComponent } from './listacompras/listacompras.component';
     PainelComponent,
     PerfilComponent,
     RankingComponent,
-    ListaComprasComponent
+    ListaComprasComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

@@ -29,4 +29,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  cadastrar(){
+    this.router.navigate(['/cadastro']);
+  }
+
 }

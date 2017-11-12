@@ -1,0 +1,57 @@
+body{
+    margin: 0px;
+}
+
+.top{
+    position: absolute;
+    background-color: #e74c3c;
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.just{
+    position: absolute;
+    left: 0px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 45px;
+    color: #f2f2f2;
+}
+
+.cadastro{
+    opacity: 0.8;
+    width: 230px;
+    height: 230px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+form {
+    max-width: 100%;
+    top: 2px;
+}
+
+.dados{
+    width: 160px;
+    max-width: 100%;
+    margin: 10px;
+    padding: 0 0 10px 0;
+    border-style: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    color: white;
+}
+
+.submit{
+    display: block;
+    max-width: 100%;
+    width: 160px;
+    height: 35px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-color: white;
+    border: 0;
+    border-radius: 15px;
+    color: black;
+}
