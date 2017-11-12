@@ -10,9 +10,11 @@ body{
 
 .tela{
     display: flex;
-    background-repeat: no-repeat;
-    background-position-x: center; 
     background-color: #e74c3c;
+    background-image: url( ../../assets/img/shia.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -23,8 +25,9 @@ body{
 .container{
     background-color: #cc3e30;
     opacity: 0.8;
-    width: 230px;
+    width: 400px;
     height: 230px;
+    max-width: 90%;
     border-style: hidden;
     border-radius: 20px;
     display: flex;
@@ -34,13 +37,8 @@ body{
     padding-bottom: 10px;
 }
 
-form {
-    max-width: 100%;
-    top: 2px;
-}
-
 .dados{
-    width: 160px;
+    width: 90%;
     max-width: 100%;
     margin: 10px;
     padding: 0 0 10px 0;
