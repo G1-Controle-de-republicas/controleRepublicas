@@ -14,4 +14,7 @@ export class ListaComprasComponent implements OnInit {
   ngOnInit() {
   }
 
+  returnToPainel(){
+    this.router.navigate(['/painel']);
+  }
 }
