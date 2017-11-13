@@ -106,6 +106,7 @@
     -o-transition: 0.7s ease-out;
     transition: 0.7s ease-out;
 }
+
 .sidebar{
     position: fixed;
     background-color: rgb(53, 81, 109);
