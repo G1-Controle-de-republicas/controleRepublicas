@@ -40,6 +40,11 @@ module.exports = function (app) {
         });
     });
 
+    // app.get('/grupo/users', function(req,res){
+    //     var grupo = req.session.user.idGrupo;
+    //     group.
+    // });
+
     app.post('/grupo', function (req, res) {
         var grupo = req.body;
         group.criarGrupo(grupo, function (callback) {

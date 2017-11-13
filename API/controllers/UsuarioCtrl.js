@@ -37,6 +37,7 @@ UsuarioCrtl.prototype.criarUsuario = function (usuario, callback) {
     usersRef.child(newKey).set(usuario, function () {
         callback(newKey);
     });
+
 }
 
 UsuarioCrtl.prototype.editarUsuario = function (usuario, callback) {
@@ -49,7 +50,7 @@ UsuarioCrtl.prototype.editarUsuario = function (usuario, callback) {
 
 UsuarioCrtl.prototype.buscaUsuarios = function (grupo, callback) {
     var key = grupo;
-    var usersRef = this.ref.child(key + "/users");
+    var usersRef = this.ref.child(key + "/users" );
     usersRef.on("value", function (snapshot) {
         callback(snapshot.val());
     }, function (errorObject) {
