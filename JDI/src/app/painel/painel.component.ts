@@ -3,16 +3,17 @@ import { Tarefa } from '../definitions/tarefa';
 import { Router } from "@angular/router";
 import { AppService } from "../app-service.service";
 
+
 @Component({
   selector: 'app-painel',
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.css']
 })
+
 export class PainelComponent implements OnInit {
   sidebarOpen: boolean = false;
   newTask: boolean;
-  usuario: any;
-  teste;  
+  usuario: any;  
 
   tarefa: Tarefa = new Tarefa();
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();
@@ -63,5 +64,23 @@ export class PainelComponent implements OnInit {
       });
     });
   }
-  
+
+  goToPerfil(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToContas(){
+    this.router.navigate(["/contas"]);
+  }
+  goToListacompras(){
+    this.router.navigate(['/listacompras']);
+  }
+
+  goToRanking(){
+    this.router.navigate(['/ranking']);
+  }
+
+  goToRep(){
+    this.router.navigate(['/republica']);
+  }
 }

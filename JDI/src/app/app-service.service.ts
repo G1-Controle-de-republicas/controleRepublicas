@@ -79,6 +79,14 @@ export class AppService {
     });
   }
 
+  buscaUsuarios(){
+    return this.doRequest('get', 'grupo').map(res =>{
+      return JSON.parse(res["_body"]);
+    }, err =>{
+      console.log("Erro ao buscar usuarios: " + err);
+    });
+  }
+
   criarTarefa(tarefa){
     return this.doRequest('post', 'tarefa', tarefa).map(res => {
       return res["_body"];

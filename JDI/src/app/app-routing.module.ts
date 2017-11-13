@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { PainelComponent } from './painel/painel.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RankingComponent } from "./ranking/ranking.component";
+import { ListaComprasComponent } from "./listacompras/listacompras.component";
+import { CadastroComponent } from "./cadastro/cadastro.component";
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent
+  },
+  {
+    path: 'listacompras',
+    component: ListaComprasComponent
+  },
+  {
+    path: 'cadastro',
+    component: CadastroComponent
   }
 ];
 

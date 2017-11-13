@@ -1,0 +1,53 @@
+.bg{
+    width: 100vw;
+    height: 100vh;
+    background-color: #2ECC71;
+}
+
+.topbar{
+    width: 100vw;
+    height: 50px;
+    background-color: #27AE60;
+    top: 0;
+    box-shadow: black 2px 0px 2px; 
+    text-align: center;
+}
+
+.botbar{
+    position: absolute;
+    width: 100vw;
+    height: 50px;
+    background-color: #27AE60;
+    bottom: 0;
+    box-shadow: black 2px 0px 2px; 
+}
+
+.backbtn{
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 5px;
+    top: 2px;
+    border: 1px solid #fff9;
+    border-radius: 30px;
+    box-shadow: #3d3d4e 1px 0px 5px; 
+}
+.backbtn:hover{
+    opacity: 0.85;
+}
+.toptext{
+    color: white;
+    font-size: 28px;
+    margin: 0px;
+    padding-top: 10px;
+}
+.buylist{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.cancelitem{
+    width: 20px;
+    height: 20px;
+}

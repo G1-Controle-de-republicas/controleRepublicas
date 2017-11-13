@@ -1,0 +1,22 @@
+<div class="top">
+  <div class="logar" (click)="login()">Logar</div>
+</div>
+<div class="grad"></div>
+<div class="tela">
+
+  <div class="cadastro">
+    <span class="just">JUST DO IT!</span>
+    <form autocomplete="off" accept-charset="UTF-8" (submit)="cadastrar($event)">
+      <input class="dados" placeholder="Login" type="text" name="user" value="" [(ngModel)]="user.login">
+      <input class="dados" placeholder="Senha" type="password" name="password" value="" [(ngModel)]="user.senha">
+      <div class="control">
+        <div class="terms">
+          <input class="check" required="required" aria-invalid="true" type="checkbox">
+        </div>
+        <span class="text">Aceito os termos e condições</span>
+      </div>
+      <input class="submit" type="submit" value="Criar Conta">
+    </form>
+  </div>
+
+</div>
