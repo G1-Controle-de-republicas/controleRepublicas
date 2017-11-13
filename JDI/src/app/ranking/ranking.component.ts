@@ -22,4 +22,12 @@ export class RankingComponent implements OnInit {
     this.router.navigate(['/painel']);
   }
 
+  buscaRankeados(){
+    this.service.buscaIntegrantes().subscribe(res =>{
+      this.userLst = res;
+    }, err => {
+      console.log("Deu ruim na busca " + err);
+    })
+  }
+
 }

@@ -95,5 +95,12 @@ export class AppService {
     });
   }
 
+  buscaIntegrantes(){
+    return this.doRequest('get', 'usuario').map(res => {
+      console.log(res["_body"]);
+      return res["_body"];
+    });
+  }
+
 
 }
