@@ -9,11 +9,16 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { RankingComponent } from "./ranking/ranking.component";
 import { ListaComprasComponent } from "./listacompras/listacompras.component";
 import { CadastroComponent } from "./cadastro/cadastro.component";
+import { ContasComponent } from "./contas/contas.component";
 
 const routes: Routes = [
   {
     path: '',
     component: AppComponent
+  },
+  {
+    path:'contas',
+    component: ContasComponent
   },
   {
     path: 'ranking',
