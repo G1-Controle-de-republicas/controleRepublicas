@@ -27,6 +27,21 @@ UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
 
 }
 
+UsuarioCrtl.prototype.buscaUsuarios = function (grupo, callback) {
+    var usuarios = [];
+    var key = grupo;
+    var usersRef = this.ref.child(key + "/users" );
+    return usersRef.once("value").then(snapshot =>{
+        snapshot.forEach(function (snap) {
+            usuarios.push(snap.val());
+        })
+        callback(usuarios);
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+        callback(false);
+    });
+}
+
 UsuarioCrtl.prototype.criarUsuario = function (usuario, callback) {
     var key = usuario.idGrupo;
     var usersRef = this.ref.child(key + "/users");
@@ -45,17 +60,6 @@ UsuarioCrtl.prototype.editarUsuario = function (usuario, callback) {
     var usersRef = this.ref.child(key + "/users/" + usuario.id);
     usersRef.update(usuario, function () {
         callback(true);
-    });
-}
-
-UsuarioCrtl.prototype.buscaUsuarios = function (grupo, callback) {
-    var key = grupo;
-    var usersRef = this.ref.child(key + "/users" );
-    usersRef.on("value", function (snapshot) {
-        callback(snapshot.val());
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-        callback(false);
     });
 }
 
