@@ -16,11 +16,16 @@ module.exports = function (app) {
         }
     });
 
-    app.get('/login/sair', function (req, res) {
-        req.session.destroy(function (res) {
-            console.log(res);
-        });
-        return true;
+    app.get('/login/sair/:user', function (req, res) {
+        var user = req.params.user;
+        console.log("chegou: " + user + " = " + req.session.user.id);
+        if (user == req.session.user.id) {
+            console.log("true");
+            req.session.destroy(function (res) {
+            });
+            res.send(true);
+        }
+
     })
 
     app.post('/login', function (req, res) {
@@ -179,12 +184,16 @@ module.exports = function (app) {
         });
     });
 
-    app.delete('/conta/delete/:id', function (req, res){
+    app.delete('/conta/delete/:id', function (req, res) {
         var conta = req.params.id;
         var grupo = req.session.user.idGrupo;
-        bill.deleteConta(grupo, conta, function (callback){
+        bill.deleteConta(grupo, conta, function (callback) {
             res.send(callback);
         });
+    });
+
+    app.get('/teste', function(req, res){
+        res.send(location.href = "google.com");
     });
 
 }

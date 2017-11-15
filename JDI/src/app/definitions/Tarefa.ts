@@ -4,4 +4,6 @@ export class Tarefa {
     nome: String;
     duracao: String;
     isDone: boolean;
+    dtInicio: Date;
+    dtFim: Date;
 }

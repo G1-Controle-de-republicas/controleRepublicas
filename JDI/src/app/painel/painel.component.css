@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 65px;
 }
 
 /*PAINEL*/
@@ -101,10 +101,10 @@
 /*SIDEBAR*/
 .open {
     left: 0 !important;
-    -webkit-transition: 0.7s ease-out;
-    -moz-transition: 0.7s ease-out;
-    -o-transition: 0.7s ease-out;
-    transition: 0.7s ease-out;
+    -webkit-transition: 0.6s ease-out;
+    -moz-transition: 0.6s ease-out;
+    -o-transition: 0.6s ease-out;
+    transition: 0.6s ease-out;
 }
 
 .sidebar{
@@ -115,10 +115,10 @@
     left: -240px;
     height: 100%;
     width: 230px;
-    -webkit-transition: 0.7s ease-out;
-    -moz-transition: 0.7s ease-out;
-    -o-transition: 0.7s ease-out;
-    transition: 0.7s ease-out;
+    -webkit-transition: 0.6s ease-out;
+    -moz-transition: 0.6s ease-out;
+    -o-transition: 0.6s ease-out;
+    transition: 0.6s ease-out;
 }
 
 div.sidebar ul{
@@ -137,14 +137,16 @@ div.sidebar ul li{
 
 }
 
+.logout {}
+
 /*POPUP NOVA TAREFA*/
 
 .popUp {
     display: flex;
     flex-direction: column;
     z-index: 9;
-    width: 215px;
-    height: 180px;
+    width: 240px;
+    /* height: 255px; */
     position: fixed;
     top: 30%;
     left: 50%;
@@ -176,6 +178,7 @@ div.sidebar ul li{
     width: 100%;
     border: none;
     color: #000000;
+    padding-left: 5px;
 }
 
 .pop-input:focus {
@@ -192,3 +195,55 @@ div.sidebar ul li{
     top: 0;
 }
 
+.date-input {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.date-value{
+    width: 85%;
+    float: right;
+}
+
+/*PAINEL DE EDICAO*/
+
+.edit-panel {
+    position: fixed;
+    background: #fff;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 230px;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remove-task{
+    color:#e46262;
+    text-decoration: underline;
+}
+
+.header-edit-task {
+    text-align: center;
+    width: 100%;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 10px;
+}
+
+.input-edit {
+    border: none;
+    border-bottom: 1px solid #8c8b8b;
+    width: 100%;
+}
+
+.edit-field-container{
+    margin-bottom: 10px;
+}
+
+.input-edit:focus {
+    outline: none;
+}
