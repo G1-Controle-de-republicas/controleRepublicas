@@ -71,6 +71,14 @@ export class AppService {
     });
   }
 
+  logOut(){
+    return this.doRequest('get','login/sair/' + this.logado.id).map(res =>{
+      return res["_body"];
+    }, erro => {
+      console.log("Erro service -> logout: " + erro);
+    });
+  }
+
   buscaTarefa(usuario, grupo){
     return this.doRequest('get', 'tarefa/user/' + usuario + "/" + grupo).map(res =>{
       return JSON.parse(res["_body"]);

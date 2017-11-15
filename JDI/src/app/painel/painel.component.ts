@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarefa } from '../definitions/tarefa';
+import { Usuario } from '../definitions/Usuario';
 import { Router } from "@angular/router";
 import { AppService } from "../app-service.service";
 
@@ -12,11 +13,16 @@ import { AppService } from "../app-service.service";
 
 export class PainelComponent implements OnInit {
   sidebarOpen: boolean = false;
-  newTask: boolean;
-  usuario: any;  
+  newTask: boolean = false;
+  editTask: boolean = false;
+  usuarioLogado: Usuario = new Usuario();  
 
   tarefa: Tarefa = new Tarefa();
+  editTarefa: Tarefa = new Tarefa();
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();
+
+  mask = [/[0-9]/, /[0-9]/, ':', /[0-9]/, /[0-9]/];
+  birthMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
   constructor(public service: AppService, public router: Router) { }
 
@@ -56,8 +62,8 @@ export class PainelComponent implements OnInit {
 
   loadTarefas() {
     this.service.getLogado().subscribe(res => {
-      this.usuario = res;
-      this.service.buscaTarefa(this.usuario.id, this.usuario.idGrupo).subscribe(res => {
+      this.usuarioLogado = res;
+      this.service.buscaTarefa(this.usuarioLogado.id, this.usuarioLogado.idGrupo).subscribe(res => {
         this.tarefaLst = res;
       }, err => {
         console.log("Erro ao buscar tarefas: " + err);
@@ -65,22 +71,34 @@ export class PainelComponent implements OnInit {
     });
   }
 
-  goToPerfil(){
-    this.router.navigate(['/perfil'])
+  logOut(){
+    this.service.logOut().subscribe(res =>{
+      this.router.navigate(['/login']);
+    }, erro =>{
+      console.log("Erro ao fazer Logout: " + erro);
+    })
   }
 
-  goToContas(){
-    this.router.navigate(["/contas"]);
-  }
-  goToListacompras(){
-    this.router.navigate(['/listacompras']);
+  // da pra fazer tudom com uma funçao ;)
+
+  navigate(rota){
+    if(rota == "perfil") this.router.navigate(['/perfil']);
+
+    if(rota == "contas") this.router.navigate(["/contas"]);
+
+    if(rota == "lista") this.router.navigate(['/listacompras']);
+
+    if(rota == "ranking") this.router.navigate(['/ranking']);
+
+    if(rota == "republica") this.router.navigate(['/republica']);
   }
 
-  goToRanking(){
-    this.router.navigate(['/ranking']);
+  editarTarefa(task){
+    this.editTarefa = task;
+    this.editTask = true;
   }
 
-  goToRep(){
-    this.router.navigate(['/republica']);
+  removeTask(){
+    
   }
 }

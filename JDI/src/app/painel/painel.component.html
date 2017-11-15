@@ -1,14 +1,17 @@
 <div class="painel-pg">
+  <!-- INICIO HEADER -->
   <div class="header">
     <div class="hamburguer pointer" (click)="sidebar()">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  </div>  
+  </div>
+  <!-- FIM HEADER -->
 
+  <!-- INICIO PAINEL -->
   <div class="painel">
-    <div class="block-task" *ngFor="let t of tarefaLst">
+    <div class="block-task pointer" *ngFor="let t of tarefaLst.slice().reverse()" (click)="editarTarefa(t)">
       <div class="imagem">
         <img class="imagem-tarefa" src="../../assets/img/seo.png" alt="imagem-tarefa">
       </div>
@@ -18,7 +21,9 @@
       </div>
     </div>
   </div>
+  <!-- FIM PAINEL -->
 
+  <!-- POPUP NOVA TAREFA -->
   <div class="fade-task" *ngIf="newTask" (click)="closeAdd()"></div>
   <div class="popUp" *ngIf="newTask">
     <div class="input-task">
@@ -27,28 +32,68 @@
     </div>
     <div class="input-task">
       <label for="tempo">Duração: </label>
-      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.duracao">
+      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.duracao" [textMask]="{mask: mask}">
     </div>
+    <!-- <div class="input-task row date-input">
+      <label class="" for="incicio" >De:</label>
+      <input class="pop-input date-value" type="text" name="inicio" [textMask]="{mask: birthMask}">
+    </div>
+    <div class="input-task row date-input">
+      <label class="" for="fim">Até:</label>
+      <input class="pop-input date-value" type="text" name="fim" [textMask]="{mask: birthMask}">
+    </div> -->
     <div>
       <button class="btn-add-task" (click)="addTask()">Adicionar</button>
     </div>
   </div>
+  <!-- FIM POPUP NOVA TAREFA -->
 
+  <!-- POPUP EDITAR TAREFA -->
+  <div *ngIf="editTask">
+    <div class="edit-panel">
+      <div class="header-edit-task">
+        Editar tarefa
+      </div>
+      <div class="edit-field-container">
+        <label for="tarefa">Tarefa: </label>
+        <input class="input-edit" type="text" name="tarefa" [(ngModel)]="editTarefa.nome">
+      </div>
+      <div class="edit-field-container">
+        <label for="tempo">Duração: </label>
+        <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.duracao" [textMask]="{mask: mask}">
+      </div>
+      <div class="edit-buttons">
+        <button class="btn btn-success" type="button">Salvar</button>
+        <button class="btn btn-danger" type="button">Cancelar</button>
+      </div>
+      <div class="remove-task pointer" (click)="removeTask()">
+        remover tarefa
+      </div>
+    </div>
+  </div>
+  <!-- FIM POP EDITAR TAREFA -->
+
+  <!-- ICONE NOVA TAREFA -->
   <div class="add-task pointer" (click)="novatarefa()">
     <span class="glyphicon glyphicon-plus"></span>
   </div>
+  <!-- FIM ICONE NOVA TAREFA -->
 
+  <!-- MENU LATERAL -->
   <div class="sidebar" [ngClass]="{'open': sidebarOpen}">
     <ul>
-      <li class="pointer" style="background-color: rgb(42, 62, 83); height: 100px;" (click)="goToPerfil()">
-        
-        <span>{{usuario.nome}}</span>
-      
+      <li class="pointer" style="background-color: rgb(42, 62, 83); height: 100px;" (click)="navigate('perfil')">
+
+        <span>{{usuarioLogado.nome}}</span>
+
       </li>
-      <li class="pointer" (click)="goToContas()">Contas</li>
-      <li class="pointer" (click)="goToListacompras()">Lista de compras</li>
-      <li class="pointer" (click)="goToRanking()">Ranking</li>
-      <li class="pointer" style="border-bottom: 2px solid rgb(42, 62, 83);" (click)="goToRep()">Republica</li>
+      <li class="pointer" (click)="navigate('contas')">Contas</li>
+      <li class="pointer" (click)="navigate('lista')">Lista de compras</li>
+      <li class="pointer" (click)="navigate('ranking')">Ranking</li>
+      <li class="pointer" (click)="navigate('republica')">Republica</li>
+      <li class="pointer logout" (click)="logOut()">Sair</li>
+      <!-- style="border-bottom: 2px solid rgb(42, 62, 83);"  -->
     </ul>
   </div>
+  <!-- FIM MENU LATEREAL -->
 </div>
