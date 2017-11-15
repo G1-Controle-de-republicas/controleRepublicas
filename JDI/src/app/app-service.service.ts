@@ -97,10 +97,9 @@ export class AppService {
 
   buscaIntegrantes(){
     return this.doRequest('get', 'usuario').map(res => {
-      console.log(res["_body"]);
-      return res["_body"];
+      return JSON.parse(res["_body"]);
+    }, err =>{
+      console.log("Erro ao buscar integrantes: " + err);
     });
   }
-
-
 }

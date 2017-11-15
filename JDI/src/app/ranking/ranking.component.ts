@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AppService } from "../app-service.service";
 import { Usuario } from '../definitions/usuario';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-ranking',
@@ -16,6 +17,8 @@ export class RankingComponent implements OnInit {
   constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
+    this.buscaRankeados();
+    console.log(this.userLst);
   }
 
   returnToPainel(){

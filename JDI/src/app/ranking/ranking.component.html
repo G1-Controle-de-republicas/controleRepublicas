@@ -4,12 +4,12 @@
     <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">    
   </div>
   <div class="painel">
-    <div class="block-user" >
+    <div class="block-user" *ngFor="let u of userLst">
       <div class="imagem">
         <img class="imagem-user" src="../../assets/img/seo.png" alt="imagem-perfil">
       </div>
       <div class="user-info">
-        
+        <div class="user-nome">{{u.nome}}</div>  
       </div>
     </div>
   </div>
