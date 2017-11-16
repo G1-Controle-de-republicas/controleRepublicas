@@ -4,15 +4,12 @@ function UsuarioCrtl(app, db) {
 }
 
 UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
-    var userKey = usuario.key;
     var groupRef = this.ref;
     var ctrl = false;
-    var key;
 
     return groupRef.once("value").then(snapshot => {
         snapshot.forEach(function (snap) {
-            key = snap.val().id;
-            var usersRef = groupRef.child(key + "/users");
+            var usersRef = groupRef.child(snap.key + "/users");
             usersRef.on("value", function (snapS) {
                 snapS.forEach(function (users) {
                     var user = users.val();

@@ -28,16 +28,6 @@ TarefaCtrl.prototype.buscaTarefas = function (grupo, usuario, callback) {
         callback(lista);
     })
 
-    // tasksRef.on("value", function (snapshot) {
-    //     snapshot.forEach(function (snap) {
-    //         lista.push(snap.val());
-    //     })
-    //     callback(lista);
-    // }, function (errorObject) {
-    //     console.log("The read failed: " + errorObject.code);
-    //     callback(false);
-    // });
-
 }
 
 TarefaCtrl.prototype.editarTarefa = function (grupo, tarefa, callback) {

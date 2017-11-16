@@ -5,12 +5,14 @@ function BillCtrl(app, db) {
 
 BillCtrl.prototype.buscaContas = function (grupo, callback) {
     var contaRef = this.ref.child(grupo + "/bills");
-    contaRef.on("value", function (snapshot) {
-        callback(snapshot.val());
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-        callback(false);
+    var contas = [];
+    contaRef.once("value").then( snapshot => {
+        snapshot.forEach(function(snap) {
+            contas.push(snap.val());
+        });
+        callback(contas);
     });
+
 }
 
 BillCtrl.prototype.criarConta = function (grupo, conta, callback) {
