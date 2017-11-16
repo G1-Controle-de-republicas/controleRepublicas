@@ -7,12 +7,15 @@ import { Router } from "@angular/router";
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 
+import { Grupo } from './definitions/Grupo';
+
 declare var jQuery: any;
 
 @Injectable()
 export class AppService {
   user: any;
   logado: any;
+  group: Grupo = new Grupo();
 
   URL = "http://localhost:3000/";
   URL_ASSETS = "http://localhost:3000/assets/";
@@ -63,39 +66,39 @@ export class AppService {
   }
 
   doLogin(usuario) {
-    return this.doRequest('post', 'login', usuario, false).map(res =>{
+    return this.doRequest('post', 'login', usuario, false).map(res => {
       this.logado = JSON.parse(res["_body"]);
       return this.logado;
-    }, err =>{
+    }, err => {
       console.log("erro ao logar: " + err);
     });
   }
 
-  logOut(){
-    return this.doRequest('get','login/sair/' + this.logado.id).map(res =>{
+  logOut() {
+    return this.doRequest('get', 'login/sair/' + this.logado.id).map(res => {
       return res["_body"];
     }, erro => {
       console.log("Erro service -> logout: " + erro);
     });
   }
 
-  buscaTarefa(usuario, grupo){
-    return this.doRequest('get', 'tarefa/user/' + usuario + "/" + grupo).map(res =>{
+  buscaTarefa(usuario, grupo) {
+    return this.doRequest('get', 'tarefa/user/' + usuario + "/" + grupo).map(res => {
       return JSON.parse(res["_body"]);
-    }, err =>{
+    }, err => {
       console.log("Erro ao buscar tarefas: " + err);
     });
   }
 
-  buscaUsuarios(){
-    return this.doRequest('get', 'grupo').map(res =>{
+  buscaUsuarios() {
+    return this.doRequest('get', 'grupo').map(res => {
       return JSON.parse(res["_body"]);
-    }, err =>{
+    }, err => {
       console.log("Erro ao buscar usuarios: " + err);
     });
   }
 
-  criarTarefa(tarefa){
+  criarTarefa(tarefa) {
     return this.doRequest('post', 'tarefa', tarefa).map(res => {
       return res["_body"];
     }, err => {
@@ -103,11 +106,60 @@ export class AppService {
     });
   }
 
-  buscaIntegrantes(){
+  buscaIntegrantes() {
     return this.doRequest('get', 'usuario').map(res => {
       return JSON.parse(res["_body"]);
-    }, err =>{
+    }, err => {
       console.log("Erro ao buscar integrantes: " + err);
     });
+  }
+
+  updateTarefa(tarefa) {
+    return this.doRequest('put', 'tarefa', tarefa).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao atualizar tarefa: " + erro);
+    });
+  }
+
+  deleteTarefa(tarefa) {
+    return this.doRequest('delete', 'tarefa/delete/' + tarefa.id).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao deletar tarefa: " + erro);
+    });
+  }
+
+  createBill(conta) {
+    return this.doRequest('post', 'conta', conta).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar conta: " + erro);
+    });
+  }
+
+  loadBills() {
+    return this.doRequest('get', 'conta').map(res => {
+      return JSON.parse(res["_body"]);
+    }, erro => {
+      console.log("Erro ao buscar contas: " + erro);
+    });
+  }
+
+  getGrupo() {
+    return this.doRequest('get', 'grupo').map(res => {
+      this.group = JSON.parse(res["_body"]);
+      return this.group;
+    }, erro => {
+      console.log("Erro ao buscar grupo info: " + erro);
+    });
+  }
+
+  deleteBill(conta){
+    return this.doRequest('delete','conta/delete/' + conta.id).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao excluir conta: " + erro);
+    })
   }
 }

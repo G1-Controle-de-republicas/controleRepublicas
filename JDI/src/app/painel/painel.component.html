@@ -26,6 +26,10 @@
   <!-- POPUP NOVA TAREFA -->
   <div class="fade-task" *ngIf="newTask" (click)="closeAdd()"></div>
   <div class="popUp" *ngIf="newTask">
+    <div class="header-edit-task header-add">
+      Nova Tarefa
+      <span class="close-icon pointer" (click)="closeAdd()">X</span>
+    </div>
     <div class="input-task">
       <label for="tarefa">Tarefa: </label>
       <input class="pop-input" type="text" name="tarefa" [(ngModel)]="tarefa.nome">
@@ -49,10 +53,12 @@
   <!-- FIM POPUP NOVA TAREFA -->
 
   <!-- POPUP EDITAR TAREFA -->
+  <div class="fade-task" *ngIf="editTask" (click)="cancelEdit()"></div>
   <div *ngIf="editTask">
     <div class="edit-panel">
       <div class="header-edit-task">
         Editar tarefa
+        <span class="close-icon pointer" (click)="cancelEdit()">X</span>
       </div>
       <div class="edit-field-container">
         <label for="tarefa">Tarefa: </label>
@@ -63,8 +69,8 @@
         <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.duracao" [textMask]="{mask: mask}">
       </div>
       <div class="edit-buttons">
-        <button class="btn btn-success" type="button">Salvar</button>
-        <button class="btn btn-danger" type="button">Cancelar</button>
+        <button class="btn btn-success btn-size" type="button" (click)="saveEdit()">Salvar</button>
+        <button class="btn btn-danger btn-size" type="button" (click)="cancelEdit()">Cancelar</button>
       </div>
       <div class="remove-task pointer" (click)="removeTask()">
         remover tarefa

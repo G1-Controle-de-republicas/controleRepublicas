@@ -1,4 +1,6 @@
 <div class="contas-pg">
+
+  <!-- HEADER -->
   <div class="header">
     <div class="img-container">
       <img class="img-icon pointer" (click)="goToPainel()" src="../../assets/img/backicon.png" alt="seta-voltar">
@@ -6,10 +8,53 @@
     <div class="container">
       <div class="title-header">Contas</div>
     </div>
-  </div>  
+  </div>
+  <!-- FIM HEADER -->
 
-  <div class="add-task pointer" (click)="novaconta()">
+  <!-- LISTA DE CONTAS -->
+  <div class="bills-list">
+    <div class="bill-info-container" *ngFor="let b of billLst">
+      <div>{{b.nome}} - {{b.valor}}</div>
+      <div>R${{calculaConta(b.valor)}},00 cada um.</div>
+      <span class="glyphicon glyphicon-remove delete-icon pointer" aria-hidden="true" (click)="deleteConta(b)"></span>      
+    </div>
+  </div>
+  <!-- FIM LISTA DE CONSTAS -->
+
+  <div class="fade-pg-bill" *ngIf="newBill" (click)="cancelNovaConta()"></div>
+  <!-- POPUP NOVA CONTA -->
+  <div *ngIf="newBill">
+    <div class="popup-novaconta">
+      <div class="header-bill">
+        Nova conta
+        <span class="close-icon pointer" (click)="cancelNovaConta()">X</span>
+      </div>
+      <div class="input-field">
+        <label for="conta">Conta: </label>
+        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.nome">
+      </div>
+      <div class="input-field">
+        <label for="valor">Valor: </label>
+        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.valor">
+      </div>
+      <div class="btn-container">
+        <button class="btn-add-bill" (click)="addBill()">Adicionar</button>
+      </div>
+    </div>
+  </div>
+  <!-- FIM POPUP NOVA CONTA -->
+
+  <!-- BUTTON ADD NOVA CONTA -->
+  <div class="add-bill pointer" (click)="novaconta()">
     <span class="glyphicon glyphicon-plus"></span>
   </div>
+  <!-- FIM BUTTON ADD NOVA CONTA -->
 
+  <!-- TOTAL GERAL -->
+  <div class="footer-result">
+    <div class="total-result">
+      TOTAL POR PESSOA = R${{resultadoTotal}},00
+    </div>
+  </div>
+  <!-- FIM TOTAL GERAL -->
 </div>

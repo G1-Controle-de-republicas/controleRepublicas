@@ -15,10 +15,18 @@ export class AppComponent {
 
   ngOnInit() {
     this.service.getLogado().subscribe(res => {
-      if (!res) this.router.navigate(['/login']);
+      if (!res) {
+        this.router.navigate(['/login']);
+      } else {
+        this.loadGrupo();
+      }
     });
   }
 
-
+  loadGrupo() {
+    this.service.getGrupo().subscribe(res => {
+      console.log("Grupo carregado!");
+    });
+  }
 
 }

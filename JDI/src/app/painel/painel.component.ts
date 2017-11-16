@@ -98,7 +98,28 @@ export class PainelComponent implements OnInit {
     this.editTask = true;
   }
 
+  cancelEdit(){
+    this.editTarefa = new Tarefa();
+    this.editTask = false;
+  }
+
+  saveEdit(){
+    this.service.updateTarefa(this.editTarefa).subscribe(res =>{
+      console.log(res);
+      this.cancelEdit();
+      this.loadTarefas();
+    }, erro =>{
+      console.log("Erro ao salvar edição: " + erro);
+    });
+  }
+
   removeTask(){
-    
+    this.service.deleteTarefa(this.editTarefa).subscribe(res => {
+      console.log(res);
+      this.cancelEdit();
+      this.loadTarefas();
+    }, erro => {
+      console.log("Erro ao deletar tarefa: " + erro);
+    });
   }
 }
