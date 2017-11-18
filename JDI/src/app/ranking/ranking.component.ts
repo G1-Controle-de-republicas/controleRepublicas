@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { AppService } from "../app-service.service";
 import { Usuario } from '../definitions/usuario';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Tarefa } from '../definitions/tarefa';
 
 @Component({
   selector: 'app-ranking',
@@ -13,6 +14,7 @@ export class RankingComponent implements OnInit {
   
   user: Usuario = new Usuario();
   userLst: Array<Usuario> = new Array<Usuario>();
+  lstTask: Array<Tarefa> = new Array<Tarefa>();
 
   constructor(public service: AppService, public router: Router) { }
 
@@ -33,4 +35,15 @@ export class RankingComponent implements OnInit {
     })
   }
 
+  rp(id, idgrupo){
+    this.service.buscaTarefa(id, idgrupo).subscribe(res =>{
+      this.lstTask = res;
+      let ctrl;
+      this.lstTask.forEach( (t:Tarefa) =>{
+        if(t.isDone == true){
+          ctrl += 1;
+        }});
+      return ctrl;
+    })
+  }
 }
