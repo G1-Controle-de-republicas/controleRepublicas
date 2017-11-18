@@ -14,6 +14,7 @@ import { RankingComponent } from './ranking/ranking.component';
 import { ListaComprasComponent } from './listacompras/listacompras.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ContasComponent } from './contas/contas.component';
+import { RepublicaComponent } from './republica/republica.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContasComponent } from './contas/contas.component';
     RankingComponent,
     ListaComprasComponent,
     CadastroComponent,
-    ContasComponent
+    ContasComponent,
+    RepublicaComponent
   ],
   imports: [
     BrowserModule,

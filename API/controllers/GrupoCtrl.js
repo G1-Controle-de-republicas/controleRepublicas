@@ -15,7 +15,8 @@ GrupoCtrl.prototype.criarGrupo = function (grupo, callback) {
 
 GrupoCtrl.prototype.buscaGrupo = function (grupo, callback) {
     var groupRef = this.ref.child("groups/" + grupo + "/info");
-    groupRef.on("value", function (snapshot) {
+
+    groupRef.once("value").then(snapshot => {
         callback(snapshot.val());
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
@@ -24,7 +25,7 @@ GrupoCtrl.prototype.buscaGrupo = function (grupo, callback) {
 }
 
 GrupoCtrl.prototype.editaGrupo = function (grupo, callback) {
-    var groupRef = this.ref.child("groups/" + grupo.id);
+    var groupRef = this.ref.child("groups/" + grupo.id + "/info");
     groupRef.update(grupo, function () {
         callback(true);
     });

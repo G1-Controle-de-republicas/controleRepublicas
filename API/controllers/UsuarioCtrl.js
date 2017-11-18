@@ -47,7 +47,7 @@ UsuarioCrtl.prototype.criarUsuario = function (usuario, callback) {
     usuario.id = newKey;
 
     usersRef.child(newKey).set(usuario, function () {
-        callback(newKey);
+        callback(usuario);
     });
 
 }

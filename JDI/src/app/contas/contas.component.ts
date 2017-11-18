@@ -11,7 +11,7 @@ import { Conta } from '../definitions/Conta';
 })
 export class ContasComponent implements OnInit {
 
-  resultadoTotal: number = 0;
+  resultadoTotal: any = 0;
   billLst: Array<Conta> = new Array<Conta>();
   novaConta: Conta = new Conta();
   newBill = false;
@@ -27,11 +27,11 @@ export class ContasComponent implements OnInit {
   }
 
   addBill() {
-    this.service.createBill(this.novaConta).subscribe(res =>{
+    this.service.createBill(this.novaConta).subscribe(res => {
       this.cancelNovaConta();
       this.loadContas();
-    }, erro =>{
-      console.log("Erro ao criar conta: "+ erro);
+    }, erro => {
+      console.log("Erro ao criar conta: " + erro);
     });
   }
 
@@ -44,33 +44,40 @@ export class ContasComponent implements OnInit {
     this.resetVar();
   }
 
-  resetVar(){
+  resetVar() {
     this.novaConta = new Conta();
   }
 
-  loadContas(){
+  loadContas() {
     this.resultadoTotal = 0;
-    this.service.loadBills().subscribe(res =>{
+    this.service.loadBills().subscribe(res => {
       this.billLst = res;
-      this.calculaTotal(this.billLst);
-      console.log(this.billLst);
+      this.loadGrupo();
     }, erro => {
       console.log("Erro ao buscar contas: " + erro);
     });
   }
 
-  calculaConta(valor){
-    var resultado = parseInt(valor)/this.service.group.qtd;
+  loadGrupo(){
+    this.service.getGrupo().subscribe(res => {
+      this.calculaTotal(this.billLst);
+    });
+  }
+
+  calculaConta(valor) {
+    var resultado = (parseInt(valor) / this.service.group.qtd).toFixed(2);
     return resultado;
   }
 
-  calculaTotal(contas){
-    for(let i=0; i< contas.length; i++){
-      this.resultadoTotal += parseInt(contas[i].valor)/this.service.group.qtd;
+  calculaTotal(contas) {
+    for (let i = 0; i < contas.length; i++) {
+      this.resultadoTotal += parseInt(contas[i].valor);
     }
+    console.log(this.service.group.qtd);
+    this.resultadoTotal = (this.resultadoTotal / this.service.group.qtd).toFixed(2);
   }
 
-  deleteConta(conta){
+  deleteConta(conta) {
     this.service.deleteBill(conta).subscribe(res => {
       this.loadContas();
     }, erro => {

@@ -24,7 +24,7 @@ TarefaCtrl.prototype.buscaTarefas = function (grupo, usuario, callback) {
     return tasksRef.once("value").then(snapshot => {
         snapshot.forEach(function (snap) {
             lista.push(snap.val());
-        })
+        });
         callback(lista);
     })
 
