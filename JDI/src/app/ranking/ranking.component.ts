@@ -15,7 +15,7 @@ export class RankingComponent implements OnInit {
   
   userLst: Array<Usuario> = new Array<Usuario>();
   rankLst: Array<Ranking> = new Array<Ranking>();
-  
+
   constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class RankingComponent implements OnInit {
   preencheRnk(){
     this.userLst.forEach((u:Usuario) =>{
       this.service.buscaTarefa(u.id, u.idGrupo).subscribe(res =>{
-        let rk : Ranking;
+        let rk: Ranking = new Ranking();
         rk.usuario = u.nome;
         rk.tarefas = res;
         this.rankLst.push(rk);
@@ -46,11 +46,13 @@ export class RankingComponent implements OnInit {
     })
   }
   
-  rp(tarefas){
-    let rp;
+  rp(tarefas: Array<Tarefa>){
+    let rp: number;
+    rp = 0;
     tarefas.forEach((t:Tarefa) =>{
-      if(t.isDone == true)
+      if(t.isDone == true){
         rp++;
+      }
     })
     return rp * 10;
   }
