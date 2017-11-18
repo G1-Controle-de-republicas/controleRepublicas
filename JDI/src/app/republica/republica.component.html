@@ -11,25 +11,61 @@
   </div>
   <!-- FIM HEADER -->
 
+  <!-- LISTA DOS INTEGRANTES -->
+  <div class="painel">
+    <div class="body-users">
+      <div class="container-usuarios pointer" *ngFor="let u of userLst" (click)="status(u)">
+        <div class="img-user">
+          <img class="img-profile" src="../../assets/img/seo.png" alt="Imagem usuario">
+        </div>
+        <div class="user-info">
+          <span>{{u.nome}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FIM LISTA DOS INTEGRANTES -->
+
+  <!-- LISTA TAREFAS -->
+  <div class="task-status" [ngClass]="{'show': statusTask}">
+    <span class="title-status">Status das Tarefas</span>
+    <span class="glyphicon glyphicon-arrow-left pointer" (click)="backList()"></span>
+    <span class="empty-tasks" *ngIf="userTarefasLst.length == 0">Não existem tarefas registradas</span>
+    <div class="tarefas-container">
+      <div class="tarefasStatus" *ngFor="let t of userTarefasLst">
+        <span>{{t.nome}}</span>
+        <span class="pronto" *ngIf="t.isDone">Pronto</span>
+        <span class="andamento" *ngIf="!t.isDone">Andamento</span>
+      </div>
+    </div>
+  </div>
+  <!-- FIM LISTA TAREFA -->
+
   <div class="fade-pg-rep" *ngIf="newUser" (click)="cancelNovoUser()"></div>
   <!-- POPUP NOVA CONTA -->
   <div *ngIf="newUser">
     <div class="popup-novoUser">
-      <!-- <div class="header-bill">
-        Nova conta
+      <div class="header-user">
+        Novo usuário
         <span class="close-icon pointer" (click)="cancelNovoUser()">X</span>
       </div>
-      <div class="input-field">
-        <label for="conta">Conta: </label>
-        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.nome">
+      <div>
+        <label for="nome">Nome: </label>
+        <input class="input-user" type="text" [(ngModel)]="user.nome">
       </div>
-      <div class="input-field">
-        <label for="valor">Valor: </label>
-        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.valor">
+      <div>
+        <label for="email">E-mail: </label>
+        <input class="input-user" type="text" [(ngModel)]="user.email">
       </div>
-      <div class="btn-container">
-        <button class="btn-add-bill" (click)="addBill()">Adicionar</button>
-      </div> -->
+      <div>
+        <label for="login">Login: </label>
+        <input class="input-user" type="text" [(ngModel)]="user.login">
+      </div>
+      <div>
+        <label for="senha">Senha: </label>
+        <input class="input-user" type="text" [(ngModel)]="user.senha">
+      </div>
+      <button class="registerButton" (click)="createUser()">Registrar</button>
     </div>
   </div>
   <!-- FIM POPUP NOVA CONTA -->

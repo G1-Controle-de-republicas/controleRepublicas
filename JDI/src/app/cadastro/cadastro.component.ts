@@ -10,6 +10,8 @@ import { AppService } from "../app-service.service";
 })
 export class CadastroComponent implements OnInit {
 
+  user: Usuario = new Usuario();
+
   constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
@@ -18,4 +20,6 @@ export class CadastroComponent implements OnInit {
   login(){
     this.router.navigate(['/login']);
   }
+
+  cadastrar(event){}
 }
