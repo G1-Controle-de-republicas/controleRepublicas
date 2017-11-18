@@ -26,10 +26,10 @@
 
 .backbtn{
     position: absolute;
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
     left: 5px;
-    top: 2px;
+    top: 5px;
     border: 1px solid #fff9;
     border-radius: 30px;
     box-shadow: #3d3d4e 1px 0px 5px; 

@@ -1,0 +1,42 @@
+<div class="republica-pg">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="img-container">
+      <img class="img-icon pointer" (click)="goToPainel()" src="../../assets/img/backicon.png" alt="seta-voltar">
+    </div>
+    <div class="container">
+      <div class="title-header">República</div>
+    </div>
+  </div>
+  <!-- FIM HEADER -->
+
+  <div class="fade-pg-rep" *ngIf="newUser" (click)="cancelNovoUser()"></div>
+  <!-- POPUP NOVA CONTA -->
+  <div *ngIf="newUser">
+    <div class="popup-novoUser">
+      <!-- <div class="header-bill">
+        Nova conta
+        <span class="close-icon pointer" (click)="cancelNovoUser()">X</span>
+      </div>
+      <div class="input-field">
+        <label for="conta">Conta: </label>
+        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.nome">
+      </div>
+      <div class="input-field">
+        <label for="valor">Valor: </label>
+        <input class="input-bill" type="text" name="conta" [(ngModel)]="novaConta.valor">
+      </div>
+      <div class="btn-container">
+        <button class="btn-add-bill" (click)="addBill()">Adicionar</button>
+      </div> -->
+    </div>
+  </div>
+  <!-- FIM POPUP NOVA CONTA -->
+
+  <!-- BUTTON ADD NOVA CONTA -->
+  <div class="add-user pointer" (click)="novoUser()">
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
+  <!-- FIM BUTTON ADD NOVA CONTA -->
+</div>

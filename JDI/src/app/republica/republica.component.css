@@ -1,0 +1,88 @@
+.republica-pg {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #D35400;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    background-color: #E67E22;
+    box-shadow: black 1px 1px 4px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.img-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute;
+}
+
+.img-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 5px;
+    top: 5px;
+    border: 1px solid #fff9;
+    border-radius: 30px;
+    box-shadow: #3d3d4e 1px 0px 5px;
+}
+
+.title-header{
+    position: relative; 
+    color: white;
+    font-size: 28px;
+    margin: 0px;
+    padding-top: 6px;
+}
+
+.fade-pg-rep {
+    position: fixed;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+
+.popup-novoUser {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #279dae;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 9;
+    color: #fff;
+    width: 240px;
+}
+
+.add-user {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 20px;
+    background-color: #f92a2a;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,1);
+    z-index: 9;
+}
+
+.glyphicon {
+    top: 7px;
+    left: 9px;
+    font-size: 25px;
+}
