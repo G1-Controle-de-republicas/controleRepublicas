@@ -170,4 +170,13 @@ export class AppService {
       console.log("Erro ao criar usuario: " + erro);
     });
   }
+
+  editaUsuario(user){
+    return this.doRequest('put', 'usuario', user).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao editar usuario: " + erro);
+    });
+  }
+
 }

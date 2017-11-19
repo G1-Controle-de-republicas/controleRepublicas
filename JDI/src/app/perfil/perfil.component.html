@@ -5,8 +5,9 @@
   </div>
   <div class="viewprofile">
     <div style="position: relative;">
-      <img class="profileimg" [src]="imgPerfil" alt="imagem de perfil">
-      <span class="pointer pic-change ion-ios-camera"></span>
+      <img class="profileimg" [src]="img" alt="imagem de perfil">
+      <span class="pointer pic-change ion-ios-camera" (click)="updateImg()"></span>
+      <input type="file" accept="image/*" id="img" style="display:none" (change)="changeListener($event)">
     </div>
     <div class="profileinfo">
       <!-- <p class="info"> Grupo: <span class="gotInfo">{{user.idGrupo}}</span> </p> -->
@@ -14,6 +15,7 @@
       <p class="info"> E-mail: <span class="gotInfo">{{user.email}}</span> </p>
       <p class="info"> Login: <span class="gotInfo">{{user.login}}</span> </p>
     </div>
+    <button (click)="updateUser()">Salvar</button>
   </div>
   <div class="final"></div>
 </div>

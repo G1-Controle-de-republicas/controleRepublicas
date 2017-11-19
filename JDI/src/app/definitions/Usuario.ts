@@ -5,4 +5,6 @@ export class Usuario {
     email: String;
     login: String;  
     senha: String;
+    imagem: boolean;
+    file: String;
 }

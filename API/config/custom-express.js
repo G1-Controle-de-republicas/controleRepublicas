@@ -30,6 +30,7 @@ module.exports = function () {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(session({ secret: "u7m62LtZfQddKJfBmB1SgdyMvfGW8XWl", resave: false, saveUninitialized: false }));
+
     app.use(express.static(path.join(__dirname, '../bin/front')));
     app.use('/assets', express.static(path.join(__dirname, '../bin/assets')));
 

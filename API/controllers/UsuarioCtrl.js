@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function UsuarioCrtl(app, db) {
     this.app = app;
     this.ref = db.ref("restricted_access/secret_document/groups");
@@ -19,7 +21,7 @@ UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
                 });
             });
         });
-        callback(ctrl);        
+        callback(ctrl);
     })
 
 }
@@ -27,8 +29,8 @@ UsuarioCrtl.prototype.doLogin = function (usuario, callback) {
 UsuarioCrtl.prototype.buscaUsuarios = function (grupo, callback) {
     var usuarios = [];
     var key = grupo;
-    var usersRef = this.ref.child(key + "/users" );
-    return usersRef.once("value").then(snapshot =>{
+    var usersRef = this.ref.child(key + "/users");
+    return usersRef.once("value").then(snapshot => {
         snapshot.forEach(function (snap) {
             usuarios.push(snap.val());
         })
@@ -53,6 +55,13 @@ UsuarioCrtl.prototype.criarUsuario = function (usuario, callback) {
 }
 
 UsuarioCrtl.prototype.editarUsuario = function (usuario, callback) {
+    if (usuario.file) {
+        var base64Data = usuario.file.replace(/^data:image\/[a-z]+;base64,/, "");
+        fs.writeFile("./bin/assets/" + usuario.id + ".png", base64Data, 'base64', function (err) {
+            console.log("Imagem salva");
+        });
+    }
+
     var key = usuario.idGrupo;
     var usersRef = this.ref.child(key + "/users/" + usuario.id);
     usersRef.update(usuario, function () {
