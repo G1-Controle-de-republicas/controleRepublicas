@@ -13,11 +13,11 @@
   <div class="painel">
     <div class="block-task pointer" *ngFor="let t of tarefaLst.slice().reverse()" (click)="editarTarefa(t)">
       <div class="imagem">
-        <img class="imagem-tarefa" src="../../assets/img/seo.png" alt="imagem-tarefa">
+        <img class="imagem-tarefa" [src]="cat[t.categoria]" alt="imagem-tarefa">
       </div>
       <div class="task-info">
         <div class="task-name">{{t.nome}}</div>
-        <div class="task-time">{{t.duracao}}</div>
+        <div class="task-time"> Até {{t.prazo}} às {{t.horario}}</div>
       </div>
     </div>
   </div>
@@ -35,17 +35,22 @@
       <input class="pop-input" type="text" name="tarefa" [(ngModel)]="tarefa.nome">
     </div>
     <div class="input-task">
-      <label for="tempo">Duração: </label>
-      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.duracao" [textMask]="{mask: mask}">
+      <label for="tempo">Até: </label>
+      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.prazo" [textMask]="{mask: dateMask}">
     </div>
-    <!-- <div class="input-task row date-input">
-      <label class="" for="incicio" >De:</label>
-      <input class="pop-input date-value" type="text" name="inicio" [textMask]="{mask: birthMask}">
+    <div class="input-task">
+      <label for="tempo">Horário: </label>
+      <input class="pop-input" type="text" name="tempo" [(ngModel)]="tarefa.horario" [textMask]="{mask: mask}">
     </div>
-    <div class="input-task row date-input">
-      <label class="" for="fim">Até:</label>
-      <input class="pop-input date-value" type="text" name="fim" [textMask]="{mask: birthMask}">
-    </div> -->
+    <div class="input-task" style="display: grid;">
+      <label for="categoria">Categoria: </label>
+      <select class="select-opt" name="categoria" id="cat" [(ngModel)]="tarefa.categoria">
+        <option value="0">Administração</option>
+        <option value="1">Limpeza</option>
+        <option value="2">Alimentação</option>
+        <option value="3">Outros</option>
+      </select>
+    </div>
     <div>
       <button class="btn-add-task" (click)="addTask()">Adicionar</button>
     </div>
@@ -65,8 +70,12 @@
         <input class="input-edit" type="text" name="tarefa" [(ngModel)]="editTarefa.nome">
       </div>
       <div class="edit-field-container">
-        <label for="tempo">Duração: </label>
-        <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.duracao" [textMask]="{mask: mask}">
+        <label for="tempo">Até: </label>
+        <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.prazo" [textMask]="{mask: dateMask}">
+      </div>
+      <div class="edit-field-container">
+        <label for="tempo">Horário: </label>
+        <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.horario" [textMask]="{mask: mask}">
       </div>
       <div class="edit-buttons">
         <button class="btn btn-success btn-size" type="button" (click)="saveEdit()">Salvar</button>
@@ -89,15 +98,25 @@
   <div class="sidebar" [ngClass]="{'open': sidebarOpen}">
     <ul>
       <li class="pointer" style="background-color: rgb(42, 62, 83); height: 100px;" (click)="navigate('perfil')">
-
+        <img class="img-perfil" [src]="imgUser" alt="imagem de perfil">
         <span>{{usuarioLogado.nome}}</span>
 
       </li>
-      <li class="pointer" (click)="navigate('contas')">Contas</li>
-      <li class="pointer" (click)="navigate('lista')">Lista de compras</li>
-      <li class="pointer" (click)="navigate('ranking')">Ranking</li>
-      <li class="pointer" (click)="navigate('republica')">Republica</li>
-      <li class="pointer logout" (click)="logOut()">Sair</li>
+      <li class="pointer" (click)="navigate('contas')">
+        <span class="size-menu ion-social-usd-outline"></span> Contas
+      </li>
+      <li class="pointer" (click)="navigate('lista')">
+        <span class="size-menu ion-clipboard"></span> Lista de compras
+      </li>
+      <li class="pointer" (click)="navigate('ranking')">
+        <span class="size-menu ion-ios-game-controller-b-outline"></span> Ranking
+      </li>
+      <li class="pointer" (click)="navigate('republica')">
+        <span class="size-menu ion-ios-home-outline"></span> Republica
+      </li>
+      <li class="pointer logout" (click)="logOut()">
+        <span class="size-menu ion-log-out"></span> Sair
+      </li>
       <!-- style="border-bottom: 2px solid rgb(42, 62, 83);"  -->
     </ul>
   </div>

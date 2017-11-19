@@ -22,7 +22,16 @@ export class PainelComponent implements OnInit {
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();
 
   mask = [/[0-9]/, /[0-9]/, ':', /[0-9]/, /[0-9]/];
-  birthMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+
+  cat = [
+    "../../assets/img/cat-adm.png",
+    "../../assets/img/cat-limpeza.png",
+    "../../assets/img/cat-comida.png",
+    "../../assets/img/cat-outros.png"
+  ];
+
+  imgUser = "../../assets/img/ufo.png";
 
   constructor(public service: AppService, public router: Router) { }
 
@@ -32,6 +41,7 @@ export class PainelComponent implements OnInit {
 
   ngOnInit() {
     this.loadTarefas();
+
   }
 
   novatarefa() {

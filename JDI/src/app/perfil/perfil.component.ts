@@ -10,6 +10,9 @@ import { Usuario } from '../definitions/usuario';
 })
 export class PerfilComponent implements OnInit {
   user: Usuario = new Usuario();
+
+  imgPerfil = "../../assets/img/ufo.png"
+
   constructor(public service: AppService, public router: Router) { }
 
   getUserInfo(){

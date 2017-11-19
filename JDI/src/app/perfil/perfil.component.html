@@ -1,14 +1,18 @@
 <div class="perfil_tela">
   <div class="perfil_topo">
     <h1 class="title">Perfil</h1>
-    <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">    
+    <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">
   </div>
   <div class="viewprofile">
-    <div class="profileimg"></div>
+    <div style="position: relative;">
+      <img class="profileimg" [src]="imgPerfil" alt="imagem de perfil">
+      <span class="pointer pic-change ion-ios-camera"></span>
+    </div>
     <div class="profileinfo">
-      <p class="info"> Grupo: <span class="gotInfo">{{user.idGrupo}}</span> </p>
+      <!-- <p class="info"> Grupo: <span class="gotInfo">{{user.idGrupo}}</span> </p> -->
       <p class="info"> Nome: <span class="gotInfo">{{user.nome}}</span> </p>
       <p class="info"> E-mail: <span class="gotInfo">{{user.email}}</span> </p>
+      <p class="info"> Login: <span class="gotInfo">{{user.login}}</span> </p>
     </div>
   </div>
   <div class="final"></div>
