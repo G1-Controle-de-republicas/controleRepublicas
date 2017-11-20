@@ -2,6 +2,31 @@ body{
     margin: 0px;
 }
 
+div.logo{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+}
+
+img.logo{
+    width: 60px;
+}
+
+img.logo:hover{
+    color: #cc3e30;
+}
+
+span.logo{
+    width: 100px;
+    height: 2px;
+    background-color: #fff;
+    display: inline-block;
+    padding-bottom: 4px;
+    margin: 0 2px;
+    border-top: 2px #f2f2f2 solid;
+}
+
 .container{
     display: flex;
     width: 287px;
@@ -9,6 +34,13 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.title{
+    position: absolute;
+    top: 115px;
+    color: #6c6c6c;
+    font-size: 26px;
 }
 
 .submit{
@@ -31,8 +63,40 @@ body{
 
 .pr{
     font-size: 17px;
-    width: 100%;
-    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 20px;
     border-style: hidden;
     border-bottom: 1px #8a8a8a solid;
+    -webkit-transition: 600ms ease-in-out;
+    -moz-transition: 600ms ease-in-out;
+    -o-transition: 600ms ease-in-out;
+    transition: 600ms ease-in-out;
+}
+
+.pr:focus{
+    width: 100%;
+    border-bottom: 1px #cc3e30 ridge;
+}
+
+.gp{
+    margin-bottom: 10px;
+}
+
+.grupo{
+    width: 87px;
+    height: 2px;
+    background-color: #fff;
+    display: inline-block;
+    padding-bottom: 4px;
+    margin: 0 2px;
+    border-top: 2px #f2f2f2 solid;
+}
+
+.title-group{
+    font-size: 20px;
+    color: #6c6c6c;
+}
+
+form{
+    text-align: center;
 }
