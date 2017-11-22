@@ -1,22 +1,22 @@
-<div class="top">
-  <div class="logar" (click)="login()">Logar</div>
+<div class="logo">
+  <span class="logo"></span>
+  <img class="logo" src="../../assets/img/logo.png">
+  <span class="logo"></span>
 </div>
-<div class="grad"></div>
-<div class="tela">
 
-  <div class="cadastro">
-    <span class="just">JUST DO IT!</span>
-    <form autocomplete="off" accept-charset="UTF-8" (submit)="cadastrar($event)">
-      <input class="dados" placeholder="Login" type="text" name="user" value="" [(ngModel)]="user.login">
-      <input class="dados" placeholder="Senha" type="password" name="password" value="" [(ngModel)]="user.senha">
-      <div class="control">
-        <div class="terms">
-          <input class="check" required="required" aria-invalid="true" type="checkbox">
-        </div>
-        <span class="text">Aceito os termos e condições</span>
-      </div>
-      <input class="submit" type="submit" value="Criar Conta">
-    </form>
-  </div>
-
+<div class="container">
+  <div class="title">Cadastro</div>
+  <form>
+    <input class="pr" type="text" placeholder="Nome" name="nome" value="">
+    <input class="pr" type="text" placeholder="E-mail" name="email" value="">
+    <input class="pr" type="text" placeholder="Login" name="login" value="">
+    <input class="pr" type="text" placeholder="Senha" name="senha" value="">
+    <div class="gp">
+      <span class="grupo"></span>
+      <span class="title-group">GRUPO</span>
+      <span class="grupo"></span>
+    </div>
+    <input class="pr" type="text" placeholder="Nome do Grupo" name="nomegrupo" value="">
+    <input class="submit" type="submit" name="prox" value="Avançar">
+  </form>
 </div>
