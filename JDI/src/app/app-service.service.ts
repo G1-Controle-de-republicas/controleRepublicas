@@ -187,4 +187,28 @@ export class AppService {
     });
   }
 
+  createItem(item) {
+    return this.doRequest('post', 'item', item).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar conta: " + erro);
+    });
+  }
+
+  loadItems() {
+    return this.doRequest('get', 'item').map(res => {
+      return JSON.parse(res["_body"]);
+    }, erro => {
+      console.log("Erro ao buscar contas: " + erro);
+    });
+  }
+
+  deleteItem(item){
+    return this.doRequest('delete','item/' + item.id).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao excluir conta: " + erro);
+    })
+  }
+
 }

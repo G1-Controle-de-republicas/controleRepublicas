@@ -5,11 +5,12 @@ function ItemCrtl(app, db) {
 
 ItemCrtl.prototype.buscaItens = function (grupo, callback) {
     var itemRef = this.ref.child(grupo + "/items");
-    itemRef.on("value", function (snapshot) {
-        callback(snapshot.val());
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-        callback(false);
+    var items = [];
+    itemRef.once("value").then( snapshot => {
+        snapshot.forEach(function(snap) {
+            items.push(snap.val());
+        });
+        callback(items);
     });
 }
 
