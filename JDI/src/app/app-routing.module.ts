@@ -11,6 +11,7 @@ import { ListaComprasComponent } from "./listacompras/listacompras.component";
 import { CadastroComponent } from "./cadastro/cadastro.component";
 import { ContasComponent } from "./contas/contas.component";
 import { RepublicaComponent } from "./republica/republica.component";
+import { PendenciasComponent } from "./pendencias/pendencias.component";
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'cadastro',
     component: CadastroComponent
+  },
+  {
+    path:'pendencias',
+    component: PendenciasComponent
   },
   {
     path:'republica',

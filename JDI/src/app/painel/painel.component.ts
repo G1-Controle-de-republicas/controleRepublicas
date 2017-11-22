@@ -113,6 +113,8 @@ export class PainelComponent implements OnInit {
     if (rota == "ranking") this.router.navigate(['/ranking']);
 
     if (rota == "republica") this.router.navigate(['/republica']);
+
+    if (rota == "pendencias") this.router.navigate(["/pendencias"]);
   }
 
   editarTarefa(task) {

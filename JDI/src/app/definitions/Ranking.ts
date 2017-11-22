@@ -2,6 +2,7 @@ import { Tarefa } from "./tarefa";
 import { Usuario } from "./usuario";
 
 export class Ranking{
-    usuario: String;
+    usuario: Usuario;
     tarefas: Array<Tarefa>;
+    rp: any;
 }

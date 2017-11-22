@@ -49,6 +49,8 @@
 .imagem {
     width: 128px;
     height: 128px;
+    border-radius: 50%;
+    background-color: #b3b3b3;
 }
 
 .block-user{
@@ -58,6 +60,7 @@
 .imagem-user {
     width: 128px;
     height: 128px;
+    border-radius: 50%;
 }
 
 .user-info{

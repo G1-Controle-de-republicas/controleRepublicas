@@ -31,6 +31,18 @@ export class RepublicaComponent implements OnInit {
     });
   }
 
+  userimg(user) {
+    var imgPadrao = "../../assets/img/ufo.png";
+    var imgPerfil = this.service.URL_ASSETS + user.id + ".png";
+    var img: string;
+    if (!user.imagem)
+      img = imgPadrao;
+    else
+      img = imgPerfil;
+
+    return img;
+  }
+
   cancelNovoUser() {
     this.newUser = false;
     this.resetVar();
@@ -61,10 +73,10 @@ export class RepublicaComponent implements OnInit {
     });
   }
 
-  updateGrupo(){
+  updateGrupo() {
     var grp = this.service.group;
     grp.qtd += 1;
-    this.service.editaGrupo(grp).subscribe(res =>{
+    this.service.editaGrupo(grp).subscribe(res => {
       console.log(res);
     }, erro => {
       console.log("Erro ao atualizar grupo: " + erro);

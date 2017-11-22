@@ -16,7 +16,7 @@
     <div class="body-users">
       <div class="container-usuarios pointer" *ngFor="let u of userLst" (click)="status(u)">
         <div class="img-user">
-          <img class="img-profile" src="../../assets/img/seo.png" alt="Imagem usuario">
+          <img class="img-profile" [src]="userimg(u)" alt="Imagem usuario">
         </div>
         <div class="user-info">
           <span>{{u.nome}}</span>

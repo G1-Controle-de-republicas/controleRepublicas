@@ -4,13 +4,13 @@
     <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">    
   </div>
   <div class="painel">
-    <div class="block-user" *ngFor="let r of rankLst">
+    <div class="block-user" *ngFor="let r of rankLst | sort:'rp'">
       <div class="imagem">
-        <img class="imagem-user" src="../../assets/img/seo.png" alt="imagem-perfil">
+        <img class="imagem-user" [src]="userimg(r.usuario)" alt="imagem-perfil">
       </div>
       <div class="user-info">
-        <div class="user-nome">{{r.usuario}}</div>
-        <div class="rp">RP:{{rp(r.tarefas)}}</div>
+        <div class="user-nome">{{r.usuario.nome}}</div>
+        <div class="rp">RP:{{r.rp}}</div>
       </div>
     </div>
   </div>

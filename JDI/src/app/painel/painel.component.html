@@ -77,6 +77,10 @@
         <label for="tempo">Horário: </label>
         <input class="input-edit" type="text" name="tempo" [(ngModel)]="editTarefa.horario" [textMask]="{mask: mask}">
       </div>
+      <div class="edit-field-container">
+        <label for="isDone">Pronto: </label>
+        <input class="" type="checkbox" name="isDone" [(ngModel)]="editTarefa.isDone">
+      </div>
       <div class="edit-buttons">
         <button class="btn btn-success btn-size" type="button" (click)="saveEdit()">Salvar</button>
         <button class="btn btn-danger btn-size" type="button" (click)="cancelEdit()">Cancelar</button>
@@ -113,6 +117,9 @@
       </li>
       <li class="pointer" (click)="navigate('republica')">
         <span class="size-menu ion-ios-home-outline"></span> Republica
+      </li>
+      <li class="pointer" (click)="navigate('pendencias')">
+        <span class="size-menu ion-ios-cloud-outline"></span> Pendencias
       </li>
       <li class="pointer logout" (click)="logOut()">
         <span class="size-menu ion-log-out"></span> Sair
