@@ -14,6 +14,9 @@ import { RankingComponent } from './ranking/ranking.component';
 import { ListaComprasComponent } from './listacompras/listacompras.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ContasComponent } from './contas/contas.component';
+import { RepublicaComponent } from './republica/republica.component';
+import { PendenciasComponent } from './pendencias/pendencias.component';
+import { ArraySortPipe } from './ranking/arraySortPipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,17 @@ import { ContasComponent } from './contas/contas.component';
     RankingComponent,
     ListaComprasComponent,
     CadastroComponent,
-    ContasComponent
+    ContasComponent,
+    RepublicaComponent,
+    PendenciasComponent, 
+    ArraySortPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     TextMaskModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AppService],
   bootstrap: [AppComponent]

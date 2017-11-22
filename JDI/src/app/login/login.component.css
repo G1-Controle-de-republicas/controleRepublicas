@@ -21,7 +21,7 @@ body{
 
 .tela{
     display: flex;
-    background-image: url( ../../assets/img/shia.png);
+    background-image: url(../../assets/img/shia.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

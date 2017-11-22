@@ -15,23 +15,35 @@ export class PainelComponent implements OnInit {
   sidebarOpen: boolean = false;
   newTask: boolean = false;
   editTask: boolean = false;
-  usuarioLogado: Usuario = new Usuario();  
+  usuarioLogado: Usuario = new Usuario();
 
   tarefa: Tarefa = new Tarefa();
   editTarefa: Tarefa = new Tarefa();
   tarefaLst: Array<Tarefa> = new Array<Tarefa>();
 
+  imgPadrao: String;
+  imgPerfil: String;
+  img: String;
+
   mask = [/[0-9]/, /[0-9]/, ':', /[0-9]/, /[0-9]/];
-  birthMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+
+  cat = [
+    "../../assets/img/cat-adm.png",
+    "../../assets/img/cat-limpeza.png",
+    "../../assets/img/cat-comida.png",
+    "../../assets/img/cat-outros.png"
+  ];
 
   constructor(public service: AppService, public router: Router) { }
 
-  sidebar(){
+  sidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
   ngOnInit() {
     this.loadTarefas();
+
   }
 
   novatarefa() {
@@ -63,6 +75,7 @@ export class PainelComponent implements OnInit {
   loadTarefas() {
     this.service.getLogado().subscribe(res => {
       this.usuarioLogado = res;
+      this.loadImg();
       this.service.buscaTarefa(this.usuarioLogado.id, this.usuarioLogado.idGrupo).subscribe(res => {
         this.tarefaLst = res;
       }, err => {
@@ -71,49 +84,60 @@ export class PainelComponent implements OnInit {
     });
   }
 
-  logOut(){
-    this.service.logOut().subscribe(res =>{
+  loadImg() {
+    this.imgPadrao = "../../assets/img/ufo.png";
+    this.imgPerfil = this.service.URL_ASSETS + this.usuarioLogado.id + ".png?";
+    if (!this.usuarioLogado.imagem)
+      this.img = this.imgPadrao;
+    else
+      this.img = this.imgPerfil;
+  }
+
+  logOut() {
+    this.service.logOut().subscribe(res => {
       this.router.navigate(['/login']);
-    }, erro =>{
+    }, erro => {
       console.log("Erro ao fazer Logout: " + erro);
     })
   }
 
   // da pra fazer tudom com uma funçao ;)
 
-  navigate(rota){
-    if(rota == "perfil") this.router.navigate(['/perfil']);
+  navigate(rota) {
+    if (rota == "perfil") this.router.navigate(['/perfil']);
 
-    if(rota == "contas") this.router.navigate(["/contas"]);
+    if (rota == "contas") this.router.navigate(["/contas"]);
 
-    if(rota == "lista") this.router.navigate(['/listacompras']);
+    if (rota == "lista") this.router.navigate(['/listacompras']);
 
-    if(rota == "ranking") this.router.navigate(['/ranking']);
+    if (rota == "ranking") this.router.navigate(['/ranking']);
 
-    if(rota == "republica") this.router.navigate(['/republica']);
+    if (rota == "republica") this.router.navigate(['/republica']);
+
+    if (rota == "pendencias") this.router.navigate(["/pendencias"]);
   }
 
-  editarTarefa(task){
+  editarTarefa(task) {
     this.editTarefa = task;
     this.editTask = true;
   }
 
-  cancelEdit(){
+  cancelEdit() {
     this.editTarefa = new Tarefa();
     this.editTask = false;
   }
 
-  saveEdit(){
-    this.service.updateTarefa(this.editTarefa).subscribe(res =>{
+  saveEdit() {
+    this.service.updateTarefa(this.editTarefa).subscribe(res => {
       console.log(res);
       this.cancelEdit();
       this.loadTarefas();
-    }, erro =>{
+    }, erro => {
       console.log("Erro ao salvar edição: " + erro);
     });
   }
 
-  removeTask(){
+  removeTask() {
     this.service.deleteTarefa(this.editTarefa).subscribe(res => {
       console.log(res);
       this.cancelEdit();

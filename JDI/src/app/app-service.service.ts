@@ -90,14 +90,6 @@ export class AppService {
     });
   }
 
-  buscaUsuarios() {
-    return this.doRequest('get', 'grupo').map(res => {
-      return JSON.parse(res["_body"]);
-    }, err => {
-      console.log("Erro ao buscar usuarios: " + err);
-    });
-  }
-
   criarTarefa(tarefa) {
     return this.doRequest('post', 'tarefa', tarefa).map(res => {
       return res["_body"];
@@ -155,6 +147,14 @@ export class AppService {
     });
   }
 
+  editaGrupo(grupo){
+    return this.doRequest('put','grupo', grupo).map(res =>{
+      return res["body"];
+    }, erro => {
+      console.log("Erro ao atualizar grupo: " + erro);
+    });
+  }
+
   deleteBill(conta){
     return this.doRequest('delete','conta/delete/' + conta.id).map(res => {
       return res["_body"];
@@ -162,4 +162,21 @@ export class AppService {
       console.log("Erro ao excluir conta: " + erro);
     })
   }
+
+  createUser(user){
+    return this.doRequest('post','usuario', user).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar usuario: " + erro);
+    });
+  }
+
+  editaUsuario(user){
+    return this.doRequest('put', 'usuario', user).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao editar usuario: " + erro);
+    });
+  }
+
 }

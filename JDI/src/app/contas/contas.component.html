@@ -15,7 +15,7 @@
   <div class="bills-list">
     <div class="bill-info-container" *ngFor="let b of billLst">
       <div>{{b.nome}} - {{b.valor}}</div>
-      <div>R${{calculaConta(b.valor)}},00 cada um.</div>
+      <div>R${{calculaConta(b.valor)}} cada um.</div>
       <span class="glyphicon glyphicon-remove delete-icon pointer" aria-hidden="true" (click)="deleteConta(b)"></span>      
     </div>
   </div>
@@ -53,7 +53,7 @@
   <!-- TOTAL GERAL -->
   <div class="footer-result">
     <div class="total-result">
-      TOTAL POR PESSOA = R${{resultadoTotal}},00
+      TOTAL POR PESSOA = R${{resultadoTotal}}
     </div>
   </div>
   <!-- FIM TOTAL GERAL -->
