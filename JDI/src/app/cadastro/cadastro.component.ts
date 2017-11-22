@@ -25,9 +25,9 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar(value){
+    this.group.qtd = 1;
     this.service.createGroup(this.group).subscribe(res =>{
       this.user.idGrupo = res;
-      
       this.service.createUser(this.user).subscribe(res =>{
         if(res != false){
           this.login();

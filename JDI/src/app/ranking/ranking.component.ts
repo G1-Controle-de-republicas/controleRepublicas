@@ -5,6 +5,7 @@ import { Usuario } from '../definitions/usuario';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Tarefa } from '../definitions/tarefa';
 import { Ranking } from '../definitions/Ranking';
+import { Grupo } from '../definitions/Grupo';
 
 @Component({
   selector: 'app-ranking',
