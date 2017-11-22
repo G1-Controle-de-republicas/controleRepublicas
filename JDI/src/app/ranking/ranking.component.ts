@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   userLst: Array<Usuario> = new Array<Usuario>();
   rankLst: Array<Ranking> = new Array<Ranking>();
   rank: Array<Ranking> = new Array<Ranking>();
+  newBet: boolean = false;
 
   constructor(public service: AppService, public router: Router) {
   }
@@ -75,5 +76,11 @@ export class RankingComponent implements OnInit {
     return rp * 10;
   }
 
+  novaAposta(){
+    this.newBet = true;
+  }
 
+  resetVar(){
+    this.newBet = false;
+  }
 }

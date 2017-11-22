@@ -138,6 +138,14 @@ export class AppService {
     });
   }
 
+  createGroup(grupo){
+    return this.doRequest('post', 'grupo', grupo).map(res =>{
+      return res["_body"];
+    }, erro =>{
+      console.log("Erro ao criar o grupo: " + erro);
+    });
+  }
+
   getGrupo() {
     return this.doRequest('get', 'grupo').map(res => {
       this.group = JSON.parse(res["_body"]);

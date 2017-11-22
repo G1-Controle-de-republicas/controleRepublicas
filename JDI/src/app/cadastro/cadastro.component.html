@@ -1,22 +1,28 @@
+<!--HEADER COM LOGO-->
+
 <div class="logo">
   <span class="logo"></span>
   <img class="logo" src="../../assets/img/logo.png">
   <span class="logo"></span>
-</div>
-
-<div class="container">
   <div class="title">Cadastro</div>
-  <form>
-    <input class="pr" type="text" placeholder="Nome" name="nome" value="">
-    <input class="pr" type="text" placeholder="E-mail" name="email" value="">
-    <input class="pr" type="text" placeholder="Login" name="login" value="">
-    <input class="pr" type="text" placeholder="Senha" name="senha" value="">
+</div>
+<!--HEADER COM LOGO-->
+
+<!--CENTRO-->
+<div class="container">
+  <form autocomplete="off" accept-charset="UTF-8" (submit)="cadastrar($event)">
+    <input class="pr" type="text" placeholder="Nome" name="nome" value="" [(ngModel)]="user.nome">
+    <input class="pr" type="text" placeholder="E-mail" name="email" value="" [(ngModel)]="user.email">
+    <input class="pr" type="text" placeholder="Login" name="login" value="" [(ngModel)]="user.login">
+    <input class="pr" type="password" placeholder="Senha" name="senha" value="" [(ngModel)]="user.senha">
     <div class="gp">
       <span class="grupo"></span>
       <span class="title-group">GRUPO</span>
       <span class="grupo"></span>
     </div>
-    <input class="pr" type="text" placeholder="Nome do Grupo" name="nomegrupo" value="">
-    <input class="submit" type="submit" name="prox" value="Avançar">
+    <input class="pr" type="text" placeholder="Nome do Grupo" name="nomegrupo" value="" [(ngModel)]="group.nome">
+    <div class="erro-feedback" *ngIf="erro">Erro ao cadastrar</div>
+    <input class="submit" type="submit" name="prox" value="Cadastrar">
   </form>
 </div>
+<!--CENTRO-->

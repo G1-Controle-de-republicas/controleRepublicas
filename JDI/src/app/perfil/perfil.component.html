@@ -9,12 +9,14 @@
       <span class="pointer pic-change ion-ios-camera" (click)="updateImg()"></span>
       <input type="file" accept="image/*" id="img" style="display:none" (change)="changeListener($event)">
     </div>
+    <!--INFORMAÇÕES-->
     <div class="profileinfo">
       <!-- <p class="info"> Grupo: <span class="gotInfo">{{user.idGrupo}}</span> </p> -->
       <p class="info"> Nome: <span class="gotInfo">{{user.nome}}</span> </p>
       <p class="info"> E-mail: <span class="gotInfo">{{user.email}}</span> </p>
       <p class="info"> Login: <span class="gotInfo">{{user.login}}</span> </p>
     </div>
+    <!--INFORMAÇÕES-->
     <button (click)="updateUser()">Salvar</button>
   </div>
   <div class="final"></div>

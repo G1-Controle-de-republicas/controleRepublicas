@@ -2,7 +2,7 @@
     position: relative;
     background-color: #e74c3c;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .rank_topo{
@@ -68,4 +68,93 @@
     flex-direction: column;
     align-items: center;
     color: #fff;
+}
+
+.add-task {
+    text-align: center;
+    width: 160px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 20px;
+    background-color: #c0392b;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,1);
+}
+
+.btn-add-task{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    color: #31334a;
+}
+
+.btn-add-task:focus {
+    outline: none;
+}
+
+.fade-task {
+    position: fixed;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+
+.input-task {
+    margin-bottom: 10px;
+}
+
+.header-edit-task {
+    text-align: center;
+    width: 100%;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 10px;
+}
+
+.header-add {
+    color: #fff !important;
+    border-bottom: 1px solid #fff !important;
+}
+
+.popUp {
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+    width: 240px;
+    /* height: 255px; */
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgb(96, 28, 21);
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+}
+
+.pop-input {
+    width: 100%;
+    border: none;
+    color: #000000;
+    padding-left: 5px;
+}
+
+.pop-input:focus {
+    outline: none;
+}
+
+.close-icon{
+    float: right;
+    line-height: 5px;
+}
+
+.select-opt {
+    color: #000;
 }
