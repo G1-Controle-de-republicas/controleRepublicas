@@ -138,6 +138,14 @@ export class AppService {
     });
   }
 
+  createGroup(grupo){
+    return this.doRequest('post', 'grupo', grupo).map(res =>{
+      return res["_body"];
+    }, erro =>{
+      console.log("Erro ao criar o grupo: " + erro);
+    });
+  }
+
   getGrupo() {
     return this.doRequest('get', 'grupo').map(res => {
       this.group = JSON.parse(res["_body"]);
@@ -177,6 +185,30 @@ export class AppService {
     }, erro => {
       console.log("Erro ao editar usuario: " + erro);
     });
+  }
+
+  createItem(item) {
+    return this.doRequest('post', 'item', item).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar conta: " + erro);
+    });
+  }
+
+  loadItems() {
+    return this.doRequest('get', 'item').map(res => {
+      return JSON.parse(res["_body"]);
+    }, erro => {
+      console.log("Erro ao buscar contas: " + erro);
+    });
+  }
+
+  deleteItem(item){
+    return this.doRequest('delete','item/' + item.id).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao excluir conta: " + erro);
+    })
   }
 
 }

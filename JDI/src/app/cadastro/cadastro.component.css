@@ -3,7 +3,6 @@ body{
 }
 
 div.logo{
-    position: absolute;
     width: 100%;
     text-align: center;
     padding-top: 40px;
@@ -15,6 +14,11 @@ img.logo{
 
 img.logo:hover{
     color: #cc3e30;
+}
+
+.title{
+    color: #6c6c6c;
+    font-size: 26px;
 }
 
 span.logo{
@@ -29,18 +33,11 @@ span.logo{
 
 .container{
     display: flex;
-    width: 287px;
-    height: 100vh;
+    width: 285px;
+    height: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.title{
-    position: absolute;
-    top: 115px;
-    color: #6c6c6c;
-    font-size: 26px;
 }
 
 .submit{
@@ -83,7 +80,7 @@ span.logo{
 }
 
 .grupo{
-    width: 87px;
+    width: 81px;
     height: 2px;
     background-color: #fff;
     display: inline-block;
@@ -99,4 +96,11 @@ span.logo{
 
 form{
     text-align: center;
+}
+
+.erro-feedback{
+    color: red;
+    position: absolute;
+    left: 83px;
+    bottom: 35px;
 }

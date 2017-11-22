@@ -1,3 +1,4 @@
+<!--PAINEL-->
 <div class="rank_tela">
   <div class="rank_topo">
     <h1 class="title">Ranking</h1>
@@ -14,4 +15,37 @@
       </div>
     </div>
   </div>
+
+  <!--ICON DE ADD APOSTA-->
+  <div class="add-task pointer" (click)="novaAposta()">
+    ADICIONAR PRÊMIO/APOSTA
+  </div>
+  <!--ICON DE ADD APOSTA-->
+
+  <!-- POPUP APOSTA -->
+  <div class="fade-task" *ngIf="newBet" (click)="resetVar()"></div>
+  <div class="popUp" *ngIf="newBet">
+    <div class="header-edit-task header-add">
+      Adicionar Prêmio ou Aposta
+      <span class="close-icon pointer" (click)="resetVar()">X</span>
+    </div>
+    
+    <div class="input-task" style="display: grid;">
+      <label for="categoria">Categoria: </label>
+      <select class="select-opt" name="categoria" id="cat">
+        <option value="0">Aposta</option>
+        <option value="1">Prêmio</option>
+      </select>
+    </div>
+
+    <div class="input-task">
+      <label for="tempo">Descrição: </label>
+      <input class="pop-input" type="text" name="desc">
+    </div>
+    <div>
+      <button class="btn-add-task">Adicionar</button>
+    </div>
+  </div>
+  <!-- FIM POPUP APOSTA -->
 </div>
+<!--PAINEL-->
