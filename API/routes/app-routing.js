@@ -6,6 +6,7 @@ module.exports = function (app) {
     var task = new app.controllers.TarefaCtrl(app, db);
     var item = new app.controllers.ItemCtrl(app, db);
     var bill = new app.controllers.BillCtrl(app, db);
+    var bet = new app.controllers.BetCtrl(app, db);
 
     //LOGIN
     app.get('/login', function (req, res) {
@@ -194,6 +195,40 @@ module.exports = function (app) {
 
     app.get('/teste', function (req, res) {
         res.send(location.href = "google.com");
+    });
+
+
+    // APOSTA
+
+    app.get('/aposta', function (req, res) {
+        var grupo = req.session.user.idGrupo;
+        bet.buscaAposta(grupo, function (callback) {
+            res.send(callback);
+        });
+    });
+
+    app.post('/aposta', function (req, res) {
+        var grupo = req.session.user.idGrupo;
+        var aposta = req.body;
+        bet.criarAposta(grupo, aposta, function (callback) {
+            res.send(callback);
+        });
+
+    });
+
+    app.put('/aposta', function (req, res) {
+        var aposta = req.body;
+        bet.editaAposta(aposta, function (callback) {
+            res.send(callback);
+        });
+    });
+
+    app.delete('/aposta/delete/:id', function (req, res) {
+        var bet = req.params.id;
+        var grupo = req.session.user.idGrupo;
+        bill.deleteAposta(grupo, bet, function (callback) {
+            res.send(callback);
+        });
     });
 
 }
