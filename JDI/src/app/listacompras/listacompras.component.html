@@ -3,10 +3,36 @@
     <img class="backbtn" src="../../assets/img/backicon.png" (click)="returnToPainel()">  
     <h1 class="toptext">Lista de compras</h1>
   </div>
-  <div class="buylist">
-    <li>teste <img class="cancelitem" src="../../assets/img/cancel.png"></li>
+    <!-- LISTA DE COMPRAS -->
+    <div class="bills-list">
+      <div class="bill-info-container" *ngFor="let i of itemlist">
+        <div>{{i.nome}}</div>
+        <span class="glyphicon glyphicon-remove delete-icon pointer" aria-hidden="true" (click)="deleteItem(i)"></span>      
+      </div>
+    </div>
+    <!-- FIM LISTA DE COMPRAS -->
+  
+    <div class="fade-pg-bill" *ngIf="newItem" (click)="cancelNovoItem()"></div>
+
+  <!-- POPUP NOVO ITEM -->
+  <div *ngIf="newItem">
+    <div class="popup-novaconta">
+      <div class="header-bill">
+        Novo item
+        <span class="close-icon pointer" (click)="cancelNovoItem()">X</span>
+      </div>
+      <div class="input-field">
+        <label for="conta">Item para compra: </label>
+        <input class="input-bill" type="text" name="conta" [(ngModel)]="item.nome">
+      </div>
+      <div class="btn-container">
+        <button class="btn-add-bill" (click)="addItem()">Adicionar</button>
+      </div>
+    </div>
   </div>
-  <div class="add-bill pointer" (click)="novaconta()">
+  <!-- FIM POPUP NOVO ITEM -->
+
+  <div class="add-bill pointer" (click)="novoItem()">
     <span class="glyphicon glyphicon-plus"></span>
   </div>
   
