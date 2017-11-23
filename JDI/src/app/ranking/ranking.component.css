@@ -80,6 +80,16 @@ background-color: transparent;
     background-color: #b3b3b3;
 }
 
+.ranking-result{
+    display: inline-flex;
+    position: relative;
+}
+
+.ranking-result .medalhas{
+    position: absolute;
+    right: -35px;  
+}
+
 .block-user{
     margin-bottom: 20px;
 }
@@ -184,4 +194,9 @@ background-color: transparent;
 
 .select-opt {
     color: #000;
+}
+
+.size-medal{
+    height: 40px;
+    width: 40px;
 }

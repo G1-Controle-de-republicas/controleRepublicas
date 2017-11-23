@@ -4,6 +4,8 @@
     <h1 class="title">Ranking</h1>
     <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">
   </div>
+
+  <!-- PAINEL -->
   <div class="painel">
     <div class="republicName">{{service.group.nome}}</div>
     <div class="bet-award republicName pointer" (click)="editarAposta()">
@@ -14,9 +16,16 @@
         Premio: {{aposta.descricao}}
       </div>
     </div>
-    <div class="block-user" *ngFor="let r of rankLst | sort:'rp'">
-      <div class="imagem">
-        <img class="imagem-user" [src]="userimg(r.usuario)" alt="imagem-perfil">
+    <div class="block-user" *ngFor="let r of rankLst | sort:'rp'; let i = index">
+      <div class="ranking-result">
+        <div class="imagem">
+          <img class="imagem-user" [src]="userimg(r.usuario)" alt="imagem-perfil">
+        </div>
+        <div class="medalhas" *ngIf="i == 0 || i == 1 || i==2">
+          <img class="size-medal" *ngIf="i==0" src="../../assets/img/ouro.png" alt="primeiro lugar">
+          <img class="size-medal" *ngIf="i==1" src="../../assets/img/prata.png" alt="segundo lugar">
+          <img class="size-medal" *ngIf="i==2" src="../../assets/img/bronze.png" alt="terceiro lugar">
+        </div>
       </div>
       <div class="user-info">
         <div class="user-nome">{{r.usuario.nome}}</div>
@@ -24,6 +33,7 @@
       </div>
     </div>
   </div>
+  <!-- FIM PAINEL -->
 
   <!--ICON DE ADD APOSTA-->
   <div class="add-task pointer" (click)="novaAposta()" *ngIf="!aposta">
