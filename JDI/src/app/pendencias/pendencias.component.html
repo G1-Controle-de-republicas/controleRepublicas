@@ -1,3 +1,25 @@
-<p>
-  pendencias works!
-</p>
+<div class="pendencias-pg">
+  <div class="header">
+    <h1 class="title">Pendencias</h1>
+    <img class="back-btn pointer" src="../../assets/img/backicon.png" (click)="returnToPainel()">
+  </div>
+
+  <div class="painel-pendencias">
+    <div class="pendencia" *ngFor="let p of pendencias">
+      <div class="info-container">
+        <div>Tarefa: {{p.tarefa.nome}}</div>
+        <div>Responsável: {{buscaDono(p.tarefa.idUsuario)}}</div>
+        <div>Votos:{{p.votos.length}}</div>
+      </div>
+      <div class="btn-contaier">
+        <button class="btn-vote" (click)="votar(p)">Pronto!</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="feedback" [ngClass]="{'show-feedback': retorno}">
+    <!-- {{txtFeedback}} -->
+    VOCE NÃO PODE VOTAR NESTA TAREFA
+  </div>
+
+</div>

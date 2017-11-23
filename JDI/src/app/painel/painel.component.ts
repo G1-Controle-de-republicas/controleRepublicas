@@ -3,7 +3,7 @@ import { Tarefa } from '../definitions/tarefa';
 import { Usuario } from '../definitions/Usuario';
 import { Router } from "@angular/router";
 import { AppService } from "../app-service.service";
-
+import { Pendencia } from "../definitions/Pendencia";
 
 @Component({
   selector: 'app-painel',
@@ -16,6 +16,8 @@ export class PainelComponent implements OnInit {
   newTask: boolean = false;
   editTask: boolean = false;
   usuarioLogado: Usuario = new Usuario();
+
+  pendencia: Pendencia = new Pendencia();
 
   tarefa: Tarefa = new Tarefa();
   editTarefa: Tarefa = new Tarefa();
@@ -128,7 +130,31 @@ export class PainelComponent implements OnInit {
   }
 
   saveEdit() {
-    this.service.updateTarefa(this.editTarefa).subscribe(res => {
+    if (this.editTarefa.isDone == true) {
+      this.editTarefa.isDone = false;
+      this.update(this.editTarefa);
+      this.criaPendencia(this.editTarefa);
+    }
+  }
+
+  criaPendencia(task){
+    var voto = [];
+    voto.push(task.idUsuario);
+
+    this.pendencia = new Pendencia();
+    this.pendencia.tarefa = task;
+    this.pendencia.votos = voto;
+    
+    this.service.createPendency(this.pendencia).subscribe(res => {
+      console.log(res);
+    }, erro => {
+      console.log("Erro ao criar pendencia: " + erro);
+    });
+    
+  }
+
+  update(task) {
+    this.service.updateTarefa(task).subscribe(res => {
       console.log(res);
       this.cancelEdit();
       this.loadTarefas();

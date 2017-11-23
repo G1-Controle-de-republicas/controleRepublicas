@@ -18,23 +18,28 @@ export class CadastroComponent implements OnInit {
   constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {
+    if (!this.service.group.qtd) {
+      this.service.getGrupo().subscribe(res => {
+        this.service.group = res;
+      });
+    }
   }
 
-  login(){
+  login() {
     this.router.navigate(['/login']);
   }
 
-  cadastrar(value){
+  cadastrar(value) {
     this.group.qtd = 1;
-    this.service.createGroup(this.group).subscribe(res =>{
+    this.service.createGroup(this.group).subscribe(res => {
       this.user.idGrupo = res;
-      this.service.createUser(this.user).subscribe(res =>{
-        if(res != false){
+      this.service.createUser(this.user).subscribe(res => {
+        if (res != false) {
           this.login();
-        }else{
+        } else {
           this.erro = true;
         }
-      }, err =>{
+      }, err => {
         console.log("Erro ao criar o usuário: " + err);
       });
     }, err => {

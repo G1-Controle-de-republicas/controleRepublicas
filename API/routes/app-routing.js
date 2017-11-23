@@ -7,6 +7,7 @@ module.exports = function (app) {
     var item = new app.controllers.ItemCtrl(app, db);
     var bill = new app.controllers.BillCtrl(app, db);
     var bet = new app.controllers.BetCtrl(app, db);
+    var pndc = new app.controllers.PendencyCtrl(app, db);
 
     //LOGIN
     app.get('/login', function (req, res) {
@@ -227,6 +228,38 @@ module.exports = function (app) {
         var bet = req.params.id;
         var grupo = req.session.user.idGrupo;
         bill.deleteAposta(grupo, bet, function (callback) {
+            res.send(callback);
+        });
+    });
+
+    //pendencia
+    app.post('/pendencia', function (req, res) {
+        var pend = req.body;
+        var grupo = req.session.user.idGrupo;
+        pndc.criaPendencia(grupo, pend, function (callback) {
+            res.send(callback);
+        });
+    });
+
+    app.get('/pendencia', function (req,res) {
+        var grupo = req.session.user.idGrupo;
+        pndc.buscaPendencias(grupo, function(callback) {
+            res.send(callback);
+        });
+    });
+
+    app.put('/pendencia', function(req, res) {
+        var usuario = req.session.user;
+        var pend = req.body;
+        pndc.votar(usuario,pend, function(callback){
+            res.send(callback);
+        });
+    });
+
+    app.delete('/pendencia/delete/:id', function(req, res) {
+        var pend = req.params.id;
+        var grupo = req.session.user.idGrupo;
+        pndc.deletePendencia(grupo, pend, function (callback) {
             res.send(callback);
         });
     });

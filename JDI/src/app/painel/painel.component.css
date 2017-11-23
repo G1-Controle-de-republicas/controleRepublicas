@@ -13,6 +13,17 @@
     top: 0;
     background-color: #2980B9;
     box-shadow: black 1px 1px 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.title{
+    position: relative; 
+    color: white;
+    font-size: 28px;
+    margin: 0px;
+    padding-top: 10px;
+    padding-left: 15px;
 }
 
 .painel{

@@ -237,4 +237,38 @@ export class AppService {
     });
   }
 
+  //pendencias
+
+  createPendency(task){
+    return this.doRequest('post','pendencia', task).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar pendencia: " + erro);
+    });
+  }
+
+  buscaPendencias(){
+    return this.doRequest('get','pendencia').map(res => {
+      return JSON.parse(res["_body"]);
+    }, erro => {
+      console.log("Erro ao buscar pendencias: " + erro);
+    })
+  }
+
+  votar(pendencia){
+    return this.doRequest('put','pendencia',pendencia).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao tentar realizar voto: " + erro);
+    });
+  }
+
+  deletePendencia(pendencia){
+    return this.doRequest('delete','pendencia/delete/'+pendencia.id).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao deletar pendencia: " + erro);
+    });
+  }
+
 }
