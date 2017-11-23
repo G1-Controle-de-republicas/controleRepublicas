@@ -2,10 +2,18 @@
 <div class="rank_tela">
   <div class="rank_topo">
     <h1 class="title">Ranking</h1>
-    <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">    
+    <img class="backicon pointer" (click)="returnToPainel()" src=" ../../assets/img/backicon.png">
   </div>
   <div class="painel">
     <div class="republicName">{{service.group.nome}}</div>
+    <div class="bet-award republicName pointer" (click)="editarAposta()">
+      <div *ngIf="aposta.categoria == 1">
+        Aposta: {{aposta.descricao}}
+      </div>
+      <div *ngIf="aposta.categoria == 2">
+        Premio: {{aposta.descricao}}
+      </div>
+    </div>
     <div class="block-user" *ngFor="let r of rankLst | sort:'rp'">
       <div class="imagem">
         <img class="imagem-user" [src]="userimg(r.usuario)" alt="imagem-perfil">
@@ -18,7 +26,7 @@
   </div>
 
   <!--ICON DE ADD APOSTA-->
-  <div class="add-task pointer" (click)="novaAposta()">
+  <div class="add-task pointer" (click)="novaAposta()" *ngIf="!aposta">
     ADICIONAR PRÊMIO/APOSTA
   </div>
   <!--ICON DE ADD APOSTA-->
@@ -30,23 +38,52 @@
       Adicionar Prêmio ou Aposta
       <span class="close-icon pointer" (click)="resetVar()">X</span>
     </div>
-    
+
     <div class="input-task" style="display: grid;">
       <label for="categoria">Categoria: </label>
-      <select class="select-opt" name="categoria" id="cat">
-        <option value="0">Aposta</option>
-        <option value="1">Prêmio</option>
+      <select class="select-opt" name="categoria" id="cat" [(ngModel)]="bet.categoria">
+        <option value="1">Aposta</option>
+        <option value="2">Prêmio</option>
       </select>
     </div>
 
     <div class="input-task">
       <label for="tempo">Descrição: </label>
-      <input class="pop-input" type="text" name="desc">
+      <input class="pop-input" type="text" name="desc" [(ngModel)]="bet.descricao">
     </div>
     <div>
-      <button class="btn-add-task">Adicionar</button>
+      <button class="btn-add-task" (click)="saveBet()">Adicionar</button>
     </div>
   </div>
   <!-- FIM POPUP APOSTA -->
+
+  <!-- EDITAR APOSTA -->
+  <div class="fade-task" *ngIf="editBet" (click)="resetVar()"></div>
+  <div class="popUp" *ngIf="editBet">
+    <div class="header-edit-task header-add">
+      Adicionar Prêmio ou Aposta
+      <span class="close-icon pointer" (click)="resetVar()">X</span>
+    </div>
+
+    <div class="input-task" style="display: grid;">
+      <label for="categoria">Categoria: </label>
+      <select class="select-opt" name="categoria" id="cat" [(ngModel)]="bet.categoria">
+        <option value="1">Aposta</option>
+        <option value="2">Prêmio</option>
+      </select>
+    </div>
+
+    <div class="input-task">
+      <label for="tempo">Descrição: </label>
+      <input class="pop-input" type="text" name="desc" [(ngModel)]="bet.descricao">
+    </div>
+    <div>
+      <button class="btn-add-task" (click)="saveEdit()">Salvar</button>
+    </div>
+  </div>
+  <!-- FIM EDITAR APOSTA -->
+
+
+
 </div>
 <!--PAINEL-->

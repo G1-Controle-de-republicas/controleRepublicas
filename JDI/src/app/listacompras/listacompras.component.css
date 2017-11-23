@@ -3,6 +3,9 @@
     width: 100%;
     height: 100%;
     background-color: #2ECC71;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .topbar{
@@ -33,6 +36,7 @@
     font-size: 28px;
     margin: 0px;
     padding-top: 10px;
+    padding-left: 10px;
 }
 .buylist{
     color: white;
@@ -128,8 +132,9 @@
 .bills-list {
     margin-top: 55px;
     display: flex;
-    justify-content: center;
     min-width: 320px;
+    max-width: 600px;
+    width: 100%;
     padding: 15px;
     flex-direction: column;
     overflow-y: auto;
@@ -142,16 +147,21 @@
     font-size: 16px;
     font-weight: 600;
     font-family: 'Open Sans';
-    border-bottom: 1px solid;
     margin-bottom: 10px;
     color: #fff;
-    position: relative
+    position: relative;
+    height: 36px;
+    padding: 6px;
+}
+
+.bill-info-container:nth-child(odd){
+    background-color: #27ae60;
 }
 
 
 .delete-icon{
     position: absolute;
-    right: 0 !important;
+    right: 5px !important;
     top: 7px;
     left: inherit;
 }

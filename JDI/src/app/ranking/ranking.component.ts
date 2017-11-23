@@ -6,6 +6,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { Tarefa } from '../definitions/tarefa';
 import { Ranking } from '../definitions/Ranking';
 import { Grupo } from '../definitions/Grupo';
+import { Aposta } from '../definitions/Aposta';
 
 @Component({
   selector: 'app-ranking',
@@ -15,7 +16,10 @@ import { Grupo } from '../definitions/Grupo';
 
 
 export class RankingComponent implements OnInit {
+  editBet: boolean;
 
+  aposta: Aposta = new Aposta();
+  bet: Aposta = new Aposta();
   userLst: Array<Usuario> = new Array<Usuario>();
   rankLst: Array<Ranking> = new Array<Ranking>();
   rank: Array<Ranking> = new Array<Ranking>();
@@ -26,6 +30,7 @@ export class RankingComponent implements OnInit {
 
   ngOnInit() {
     this.buscaRankeados();
+    this.loadAposta();
   }
 
   returnToPainel() {
@@ -77,11 +82,47 @@ export class RankingComponent implements OnInit {
     return rp * 10;
   }
 
-  novaAposta(){
+  novaAposta() {
     this.newBet = true;
   }
 
-  resetVar(){
+  resetVar() {
     this.newBet = false;
+    this.editBet = false;
+    this.bet = new Aposta();
   }
+
+  saveBet() {
+    this.bet.idGrupo = this.service.logado.idGrupo;
+    this.service.createBet(this.bet).subscribe(res => {
+      console.log(res);
+      this.resetVar();
+    }, erro => {
+      console.log("Erro ao criar aposta: " + erro);
+    })
+  }
+
+  loadAposta() {
+    this.service.buscaAposta().subscribe(res => {
+      this.aposta = res[0];
+    }, erro => {
+      console.log("Erro ao carregar aposta: " + erro);
+    });
+  }
+
+  editarAposta() {
+    this.bet = this.aposta;
+    this.editBet = true;
+  }
+
+  saveEdit() {
+    this.service.editaAposta(this.bet).subscribe(res => {
+      console.log(res);
+      this.loadAposta();
+      this.resetVar();
+    }, erro => {
+      console.log("Erro ao editar aposta: " + erro);
+    });
+  }
+
 }

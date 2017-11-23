@@ -211,4 +211,30 @@ export class AppService {
     })
   }
 
+  // APOSTA
+
+  buscaAposta(){
+    return this.doRequest('get', 'aposta').map(res => {
+      return JSON.parse(res["_body"]);
+    }, erro => {
+      console.log("Erro ao buscar aposta: " + erro);
+    })
+  }
+
+  createBet(aposta){
+    return this.doRequest('post','aposta', aposta).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao criar aposta");
+    });
+  }
+
+  editaAposta(aposta){
+    return this.doRequest('put','aposta', aposta).map(res => {
+      return res["_body"];
+    }, erro => {
+      console.log("Erro ao editar aposta: " + erro);
+    });
+  }
+
 }
