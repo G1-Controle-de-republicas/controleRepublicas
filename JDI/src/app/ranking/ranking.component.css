@@ -10,6 +10,8 @@
     font-size: 20px;
     position: absolute;
     top: 60px;
+    width: 100%;
+    text-align: center;
 }
 
 .rank_topo{

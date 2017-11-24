@@ -158,6 +158,10 @@
     background-color: #27ae60;
 }
 
+.bill-info-container:nth-child(even) {
+    background-color: #2dbd6a;
+}
+
 
 .delete-icon{
     position: absolute;
