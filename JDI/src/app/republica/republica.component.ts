@@ -65,7 +65,9 @@ export class RepublicaComponent implements OnInit {
     this.user.idGrupo = this.service.logado.idGrupo;
     this.service.createUser(this.user).subscribe(res => {
       console.log(res);
-      this.updateGrupo();
+      var grp = this.service.group;
+      grp.qtd += 1;
+      this.updateGrupo(grp);
       this.loadUsers();
       this.cancelNovoUser();
     }, erro => {
@@ -73,9 +75,7 @@ export class RepublicaComponent implements OnInit {
     });
   }
 
-  updateGrupo() {
-    var grp = this.service.group;
-    grp.qtd += 1;
+  updateGrupo(grp) {
     this.service.editaGrupo(grp).subscribe(res => {
       console.log(res);
     }, erro => {

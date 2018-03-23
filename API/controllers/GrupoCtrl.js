@@ -15,7 +15,7 @@ GrupoCtrl.prototype.criarGrupo = function (grupo, callback) {
 
 GrupoCtrl.prototype.buscaGrupo = function (grupo, callback) {
     var groupRef = this.ref.child("groups/" + grupo + "/info");
-
+    
     groupRef.once("value").then(snapshot => {
         callback(snapshot.val());
     }, function (errorObject) {

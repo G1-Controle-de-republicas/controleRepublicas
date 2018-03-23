@@ -1,7 +1,8 @@
 
 module.exports = function (app) {
-    var db = app.controllers.firebaseConnection;
-    var user = new app.controllers.UsuarioCtrl(app, db);
+    var db = app.controllers.firebaseConnection.database();
+    var admin = app.controllers.firebaseConnection;
+    var user = new app.controllers.UsuarioCtrl(app, db, admin);
     var group = new app.controllers.GrupoCtrl(app, db);
     var task = new app.controllers.TarefaCtrl(app, db);
     var item = new app.controllers.ItemCtrl(app, db);
@@ -86,6 +87,7 @@ module.exports = function (app) {
 
     app.put('/usuario', function (req, res) {
         var usuario = req.body;
+        console.log(usuario);
         user.editarUsuario(usuario, function (callback) {
             res.send(callback);
         });

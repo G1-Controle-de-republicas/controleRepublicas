@@ -15,6 +15,13 @@ export class PendenciasComponent implements OnInit {
   pendencias: Array<Pendencia> = new Array<Pendencia>();
   integrantes = [];
 
+  cat = [
+    "../../assets/img/cat-adm.png",
+    "../../assets/img/cat-limpeza.png",
+    "../../assets/img/cat-comida.png",
+    "../../assets/img/cat-outros.png"
+  ];
+
   constructor(public service: AppService, public router: Router) { }
 
   ngOnInit() {

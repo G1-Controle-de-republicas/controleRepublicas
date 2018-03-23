@@ -6,8 +6,8 @@ admin.initializeApp({
   databaseURL: "https://justdoit-2017.firebaseio.com/"
 });
 
-var db = admin.database();
+// var db = admin.database();
 
 module.exports = function () {
-  return db;
+  return admin;
 }

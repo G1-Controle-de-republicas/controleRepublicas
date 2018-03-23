@@ -10,6 +10,12 @@
   </div>
   <!-- FIM HEADER -->
 
+  <!-- NAO POSSUI TAREFAS CADASTRADAS -->
+  <div class="container empty-msg" *ngIf="tarefaLst.length == 0">
+    NÃO EXISTEM TAREFAS REGISTRADAS
+  </div>
+  <!-- FIM NAO POSSUI TAREFAS -->
+
   <!-- INICIO PAINEL -->
   <div class="painel">
     <div class="block-task pointer" *ngFor="let t of tarefaLst.slice().reverse()" (click)="editarTarefa(t)">
@@ -105,7 +111,6 @@
       <li class="pointer" style="background-color: rgb(42, 62, 83); height: 100px;" (click)="navigate('perfil')">
         <img class="img-perfil" [src]="img" alt="imagem de perfil">
         <span>{{usuarioLogado.nome}}</span>
-
       </li>
       <li class="pointer" (click)="navigate('contas')">
         <span class="size-menu ion-social-usd-outline"></span> Contas
